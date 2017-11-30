@@ -1,0 +1,113 @@
+body {
+  min-height: 100vh;
+}
+
+.frame {
+  width: 100%;
+  min-width: 360px;
+  height: 100vh;
+  min-height: 300px;
+  background: #E6EAEA;
+  .leftPanel {
+    float: left;
+    width: @leftPanelWidth;
+    height: 100%;
+    background: #2c3e50;
+    color: #f5f5f5;
+    overflow: hidden;
+    position: relative;
+    .profile {
+      width: 100%;
+      margin: 0 auto;
+      padding: 5px 0 0 0;
+      background: #32465a;
+      .wrap {
+        height: 60px;
+        line-height: 60px;
+        img {
+          width: 50px;
+          border-radius: 50%;
+          padding: 3px;
+          height: auto;
+          float: left;
+        }
+      }
+    }
+    .search {
+      border-top: 1px solid #32465a;
+      border-bottom: 1px solid #32465a;
+      font-weight: 300;
+      label {
+        position: absolute;
+        margin: 10px 0 0 20px;
+      }
+      input {
+        font-family: "proxima-nova",  "Source Sans Pro", sans-serif;
+        padding: 10px 0 10px 46px;
+        width: 100%;
+        border: none;
+        background: #32465a;
+        color: #f5f5f5;
+      }
+    }
+  }
+  .mainPanel {
+    float: left;
+    width: calc(~"100% - 500px");
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: gray;
+    .messages {
+      height: auto;
+      min-height: calc(100% - 93px);
+      max-height: calc(100% - 93px);
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+  }
+  .rightPanel {
+    float: left;
+    width: @rightPanelWidth;
+    height: 100%;
+    background: #2c3e50;
+    color: #f5f5f5;
+    overflow: hidden;
+    position: relative;
+  }
+
+}
+
+@media screen and (max-width: 1020px) {
+  .frame {
+    .leftPanel {
+      width: 60px;
+      min-width: 60px;
+      .profile {
+        width: 100%;
+        margin: 0 auto;
+        padding: 5px 0 0 0;
+        background: #32465a;
+        .wrap {
+          height: 55px;
+          p {
+            display: none;
+          }
+        }
+      }
+      .search {
+        display: none;
+      }
+    }
+    .mainPanel {
+      width: calc(~"100% - 60px");
+      min-width: 300px !important;
+      .messages {
+        max-height: calc(100% - 105px);
+      }
+    }
+    .rightPanel {
+      display: none;
+    }
+  }
+}
