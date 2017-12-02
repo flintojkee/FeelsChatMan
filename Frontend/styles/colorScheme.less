@@ -1,0 +1,15 @@
+@baseColor: #3e3e3e;
+
+// Shades
+@difference: 10%; // Difference (in perecent) between each shade
+@lighten4: lighten(@baseColor, (@difference * 6));
+@lighten3: lighten(@baseColor, @difference * 2);
+@lighten2: lighten(@baseColor, (@difference * 1.5));
+@lighten1: lighten(@baseColor, @difference);
+@shade3: @baseColor;
+@darken1: darken(@baseColor, @difference * 0.4);
+@darken2: darken(@baseColor, @difference * 0.9);
+@darken4: darken(@baseColor, (@difference * 2));
+@darken4: darken(@baseColor, @difference * 3);
+@darken5: darken(@baseColor, (@difference * 4));
+@textColor: white;

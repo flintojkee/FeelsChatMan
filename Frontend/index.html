@@ -1,45 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://use.fontawesome.com/3ad6757c73.js"></script>
-    <link rel="stylesheet/less" type="text/css" href="styles/main.less" />
-  <!-- LESS JavaScript компілятор -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+    <link rel="stylesheet/less" type="text/css" href="styles/main.less"/>
+    <!-- LESS JavaScript компілятор -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
 </head>
 <body>
 <div class="frame">
     <div class="leftPanel">
         <div class="profile">
             <div class="wrap">
-                <img id="profile-img" src="max.jpg" class="online" alt="" />
-                <p>Max Loh</p>
+                <img id="profile-img" src="max.jpg" class="online" alt=""/>
+                <div class="username" id="username">User</div>
             </div>
         </div>
         <div class="search">
             <div class="search">
-                <label ><i class="fa fa-search"></i></label>
-                <input type="text" placeholder="Search contacts..." />
+                <label><i class="fa fa-search"></i></label>
+                <input type="text" placeholder="Search channels..."/>
             </div>
         </div>
         <div class="channels"></div>
         <div class="action-bar"></div>
     </div>
-    <div class="mainPanel" >
-     <div class="channelMassages">
-         <ul>
-
-         </ul>
-
-  </div>
+    <div class="mainPanel">
+        <div class="channelTitle">
+        </div>
+        <div class="channelMessages scrollbar">
+            <div class="chatLineMassage">
+                <div class="time">04:23</div>
+                <div class="username">TopKek:</div>
+                <div class="messageText ">▒▒▒▒▒▒▒▒▄▄▄▄▄▄▄▄▒▒▒▒▒▒▒▒
+                    ▒▒▒▒▒▄█▀▀░░░░░░▀▀█▄▒▒▒▒▒
+                    ▒▒▒▄█▀▄██▄░░░░░░░░▀█▄▒▒▒
+                    ▒▒█▀░▀░░▄▀░░░░▄▀▀▀▀░▀█▒▒
+                    ▒█▀░░░░███░░░░▄█▄░░░░▀█▒
+                    ▒█░░░░░░▀░░░░░▀█▀░░░░░█▒
+                    ▒█░░░░░░░░░░░░░░░░░░░░█▒
+                    ▒█░░██▄░░▀▀▀▀▄▄░░░░░░░█▒
+                    ▒▀█░█░█░░░▄▄▄▄▄░░░░░░█▀▒
+                    ▒▒▀█▀░▀▀▀▀░▄▄▄▀░░░░▄█▀▒▒
+                    ▒▒▒█░░░░░░▀█░░░░░▄█▀▒▒▒▒
+                    ▒▒▒█▄░░░░░▀█▄▄▄█▀▀▒▒▒▒▒▒
+                    ▒▒▒▒▀▀▀▀▀▀▀▒▒▒▒▒▒▒▒▒▒▒▒▒</div>
+            </div>
+        </div>
+        <form>
+            <div class="channelInputArea">
+                <div class="innerInputArea">
+                    <div class="sendFile">
+                        <img src="addIcon.png">
+                    </div>
+                    <textarea rows="1" placeholder="Повідомлення#general" class="textArea scrollbar" id = "messageArea" style="height: auto; "></textarea>
+                </div>
+            </div>
+        </form>
     </div>
     <div class="rightPanel"></div>
 </div>
-
+</script><script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src="message.js"></script>
 </body>
 </html>
