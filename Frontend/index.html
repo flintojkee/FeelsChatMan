@@ -13,7 +13,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
 </head>
 <body>
-<div class="frame">
+<div class="login-page">
+    <div class="form">
+        <form class="register-form">
+            <input type="text" placeholder="name"/>
+            <input type="password" placeholder="password"/>
+            <button>create</button>
+            <p class="message">Already registered? <a href="#">Sign In</a></p>
+        </form>
+        <form class="login-form">
+            <input type="text" placeholder="username"/>
+            <input type="password" placeholder="password"/>
+            <button id="login-btn">login</button>
+            <p class="message">Not registered? <a href="#">Create an account</a></p>
+        </form>
+    </div>
+</div>
+<div class="frame hidden">
     <div class="leftPanel">
         <div class="profile">
             <div class="wrap">
@@ -22,12 +38,38 @@
             </div>
         </div>
         <div class="search">
-            <div class="search">
-                <label><i class="fa fa-search"></i></label>
-                <input type="text" placeholder="Search channels..."/>
+            <label><i class="fa fa-search"></i></label>
+            <input type="text" placeholder="Search channels..."/>
+        </div>
+        <div class="channels">
+            <div class="channel">
+            <div class="wrap">
+                <img src="iha.png" alt="" />
+                <div class="meta">
+                    <p class="name">IHA</p>
+                    <p class="preview">International Hikamori Organization</p>
+                </div>
+            </div>
+            </div>
+            <div class="channel active">
+                <div class="wrap">
+                    <img src="iha.png" alt="" />
+                    <div class="meta">
+                        <p class="name">IHA Active</p>
+                        <p class="preview">International Hikamori Organization</p>
+                    </div>
+                </div>
+            </div>
+            <div class="channel">
+                <div class="wrap">
+                    <img src="iha.png" alt="" />
+                    <div class="meta">
+                        <p class="name">IHA</p>
+                        <p class="preview">International Hikamori Organization</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="channels"></div>
         <div class="action-bar"></div>
     </div>
     <div class="mainPanel">
@@ -49,7 +91,8 @@
                     ▒▒▀█▀░▀▀▀▀░▄▄▄▀░░░░▄█▀▒▒
                     ▒▒▒█░░░░░░▀█░░░░░▄█▀▒▒▒▒
                     ▒▒▒█▄░░░░░▀█▄▄▄█▀▀▒▒▒▒▒▒
-                    ▒▒▒▒▀▀▀▀▀▀▀▒▒▒▒▒▒▒▒▒▒▒▒▒</div>
+                    ▒▒▒▒▀▀▀▀▀▀▀▒▒▒▒▒▒▒▒▒▒▒▒▒
+                </div>
             </div>
         </div>
         <form>
@@ -58,14 +101,15 @@
                     <div class="sendFile">
                         <img src="addIcon.png">
                     </div>
-                    <textarea rows="1" placeholder="Повідомлення#general" class="textArea scrollbar" id = "messageArea" style="height: auto; "></textarea>
+                    <textarea rows="1" placeholder="Повідомлення#general" class="textArea scrollbar" id="messageArea"
+                              style="height: auto; "></textarea>
                 </div>
             </div>
         </form>
     </div>
     <div class="rightPanel"></div>
 </div>
-</script><script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src="../../FeelsChatMan/Frontend/jquery-3.2.1.min.js"></script>
 <script src="message.js"></script>
 </body>
 </html>

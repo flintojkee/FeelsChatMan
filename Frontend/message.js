@@ -21,3 +21,10 @@ $(window).on('keydown', function(e) {
         return false;
     }
 });
+$('.message a').click(function(){
+    $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+});
+$('#login-btn').click(function () {
+   $('.login-page').addClass("hidden");
+   $('.frame').removeClass("hidden");
+});
