@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Bootstrap Example</title>
+    <title>FeelsChatMan</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -13,18 +13,33 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
 </head>
 <body>
+<div class="titlebar">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">FeelsChatMan</a>
+            </div>
+            <img src="feelsgoodman.svg">
+            <button class="btn btn-danger navbar-btn"></button>
+            <button class="btn btn-warning navbar-btn"></button>
+            <button class="btn btn-success navbar-btn"></button>
+
+
+        </div>
+    </nav>
+</div>
 <div class="login-page">
     <div class="form">
         <form class="register-form">
             <input type="text" placeholder="name"/>
             <input type="password" placeholder="password"/>
-            <button>create</button>
+            <button type="button">create</button>
             <p class="message">Already registered? <a href="#">Sign In</a></p>
         </form>
         <form class="login-form">
             <input type="text" placeholder="username"/>
             <input type="password" placeholder="password"/>
-            <button id="login-btn">login</button>
+            <button id="login-btn" type="button">login</button>
             <p class="message">Not registered? <a href="#">Create an account</a></p>
         </form>
     </div>
@@ -51,20 +66,11 @@
                 </div>
             </div>
             </div>
-            <div class="channel active">
+            <div class="channel ative">
                 <div class="wrap">
                     <img src="iha.png" alt="" />
                     <div class="meta">
                         <p class="name">IHA Active</p>
-                        <p class="preview">International Hikamori Organization</p>
-                    </div>
-                </div>
-            </div>
-            <div class="channel">
-                <div class="wrap">
-                    <img src="iha.png" alt="" />
-                    <div class="meta">
-                        <p class="name">IHA</p>
                         <p class="preview">International Hikamori Organization</p>
                     </div>
                 </div>
