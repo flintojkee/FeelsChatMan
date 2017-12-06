@@ -1,11 +1,13 @@
 function newMessage(newMessage) {
-    if($.trim(newMessage.msg) == '') {
+    if($.trim(newMessage.msg) === '') {
         return false;
     }
-    $('<div class="chatLineMassage"><div class="time">'+ newMessage.date +'</div><div class="username">' + newMessage.username + ':</div><div class="messageText">' + newMessage.msg + '</div></div>').appendTo($('.channelMessages'));
+    var $new = $('<div class="chatLineMassage"><div class="time">'+ newMessage.date +'</div><div class="username">' + newMessage.username + ':</div><div class="messageText">' + newMessage.msg + '</div></div>');
+    $('.channelMessages').append($new);
     $('#messageArea').val('');
     var $cont = $('.channelMessages');
     $cont[0].scrollTop = $cont[0].scrollHeight;
+
 };
 
 $(window).on('keydown', function(e) {

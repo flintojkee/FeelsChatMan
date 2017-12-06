@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FeelsChatMan</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jquery works wierdly with electron, use this code instead -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <script>
+        window.jQuery = window.$ = require('jquery');
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet/less" type="text/css" href="styles/main.less"/>
+    <!-- LESS JavaScript компілятор -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+</head>
+<body>
+<div class="frame">
+    <div class="center" style="position: absolute;margin: auto;top: 0;right: 0;bottom: 0;left: 0;width: 89px; height:92px;"><img src="splash.gif"></div>
+</div>
+<script type="text/javascript">
+    require('./renderer')
+</script>
+<script src="frontend.js"></script>
+</body>
+</html>

@@ -1,17 +1,20 @@
 @import "colorScheme";
+
 body {
   min-height: 100vh;
   overflow: hidden;
   background-color: @baseColor;
 }
 
-.navbar{
-  margin: 0;
-  height: 40px;
-  min-height: 40px;
-  border: none;
-  border-radius: 0;
-    .navbar-title{
+.titlebar {
+  -webkit-app-region: drag;
+  .navbar {
+    margin: 0;
+    height: 40px;
+    min-height: 40px;
+    border: none;
+    border-radius: 0;
+    .navbar-title {
       color: @textColor;
       font-family: "MV Boli";
       height: 15px;
@@ -19,37 +22,40 @@ body {
       float: left;
       font-size: 18px;
       padding: 8px 0 0 5px;
-
-  }
-  img{
-    height: 40px;
-    width: 40px;
-  }
-  .feelsChatMan{
-    position: absolute;
-    height: 60px;
-    width: 60px;
-    bottom:-39px;
-    left: 157px;
-    z-index: 999;
-    display: none;
-  }
-  .feelsGoodMan:hover + .feelsChatMan{
+    }
+    img {
+      height: 40px;
+      width: 40px;
+      -webkit-app-region: no-drag;
+    }
+    .feelsChatMan {
+      -webkit-app-region: no-drag;
+      position: absolute;
+      height: 60px;
+      width: 60px;
+      bottom: -39px;
+      left: 157px;
+      z-index: 999;
+      display: none;
+    }
+    .feelsGoodMan:hover + .feelsChatMan {
       display: block;
     }
   }
-  .navbar-btn{
+  .navbar-btn {
+    -webkit-app-region: no-drag;
     float: right;
     margin-right: 5px;
     height: 15px;
   }
-
+}
 
 .login-page {
   width: 360px;
   padding: 8% 0 0;
   margin: auto;
 }
+
 .form {
   position: relative;
   z-index: 1;
@@ -60,6 +66,7 @@ body {
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
+
 .form input {
   outline: 0;
   background: @lighten1;
@@ -71,6 +78,7 @@ body {
   box-sizing: border-box;
   font-size: 14px;
 }
+
 .form button {
   text-transform: uppercase;
   outline: 0;
@@ -84,36 +92,44 @@ body {
   transition: all 0.3 ease;
   cursor: pointer;
 }
-.form button:hover,.form button:active,.form button:focus {
+
+.form button:hover, .form button:active, .form button:focus {
   background: @baseColor;
 }
+
 .form .message {
   margin: 15px 0 0;
   color: @lighten3;
   font-size: 12px;
 }
+
 .form .message a {
   color: @lighten4;
   text-decoration: none;
 }
+
 .form .register-form {
   display: none;
 }
+
 .container {
   position: relative;
   z-index: 1;
   max-width: 300px;
   margin: 0 auto;
 }
+
 .container:before, .container:after {
   content: "";
   display: block;
   clear: both;
 }
+
 .container .info {
   margin: 50px auto;
   text-align: center;
 }
+
 .container .info h1 {
   margin: 0 0 15px;
   padding: 0;
@@ -121,14 +137,17 @@ body {
   font-weight: 300;
   color: #1a1a1a;
 }
+
 .container .info span {
   color: #4d4d4d;
   font-size: 12px;
 }
+
 .container .info span a {
   color: #000000;
   text-decoration: none;
 }
+
 .container .info span .fa {
   color: #EF3B3A;
 }
@@ -216,14 +235,14 @@ body {
     height: 100%;
     overflow: hidden;
     position: relative;
-    background-color:@baseColor;
-    .channelMessages{
+    background-color: @baseColor;
+    .channelMessages {
       height: auto;
       margin: 20px 20px 0 20px;
       max-height: calc(~"100% - 130px");
       overflow-y: auto;
       overflow-x: hidden;
-      .chatLineMassage{
+      .chatLineMassage {
         float: left;
         width: 100%;
         max-width: 100%;
@@ -231,16 +250,16 @@ body {
         color: @textColor;
         padding-top: 5px;
         padding-bottom: 5px;
-        .time{
+        .time {
           float: left;
-          width:30px;
+          width: 30px;
         }
-        .username{
+        .username {
           text-align: right;
           float: left;
           width: 100px;
         }
-        .messageText{
+        .messageText {
           overflow: hidden;
           padding-left: 4px;
           word-wrap: break-word;
@@ -254,26 +273,26 @@ body {
     .chatLineMassage:nth-child(even) {
       background: @baseColor; /* Цвет фона */
     }
-    form{
+    form {
       position: absolute;
       bottom: 0;
       width: 100%;
       z-index: 99;
-      .channelInputArea{
+      .channelInputArea {
         margin: 0 0 50px;
-        .innerInputArea{
+        .innerInputArea {
           background-color: @lighten1;
           margin-left: 20px;
           margin-right: 20px;
           border-radius: 5px;
           height: auto;
-          .sendFile{
+          .sendFile {
             position: absolute;
-            img{
+            img {
               z-index: 100;
             }
           }
-          .textArea{
+          .textArea {
             background-color: transparent;
             border: none;
             font-size: 1.7rem;
@@ -287,7 +306,7 @@ body {
             width: 100%;
             color: @textColor;
           }
-          .textArea::placeholder{
+          .textArea::placeholder {
             color: @textColor;
             opacity: 0.4;
           }
@@ -306,30 +325,31 @@ body {
   }
 
 }
-.scrollbar
-{
+
+.scrollbar {
   background-color: @baseColor;
 }
-.scrollbar::-webkit-scrollbar-track
-{
+
+.scrollbar::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
   background-color: rgba(245, 245, 245, 0);
 }
-.scrollbar::-webkit-scrollbar
-{
+
+.scrollbar::-webkit-scrollbar {
   width: 5px;
   background-color: rgba(245, 245, 245, 0);
 }
 
-.scrollbar::-webkit-scrollbar-thumb
-{
+.scrollbar::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background: @darken1;
   opacity: 0.2;
 }
-.hidden{
+
+.hidden {
   display: none;
 }
+
 @media screen and (max-width: 1020px) {
   .frame {
     .leftPanel {
