@@ -7,26 +7,43 @@ body {
 
 .navbar{
   margin: 0;
-  height: 30px;
-  min-height: 30px;
+  height: 40px;
+  min-height: 40px;
   border: none;
-  .navbar-header{
-    height: 15px;
-    .navbar-brand{
+  border-radius: 0;
+    .navbar-title{
+      color: @textColor;
+      font-family: "MV Boli";
       height: 15px;
-      padding: 5px 0 0 5px;
-    }
+      width: 140px;
+      float: left;
+      font-size: 18px;
+      padding: 8px 0 0 5px;
+
   }
   img{
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
+  }
+  .feelsChatMan{
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    bottom:-39px;
+    left: 157px;
+    z-index: 999;
+    display: none;
+  }
+  .feelsGoodMan:hover + .feelsChatMan{
+      display: block;
+    }
   }
   .navbar-btn{
     float: right;
     margin-right: 5px;
     height: 15px;
   }
-}
+
 
 .login-page {
   width: 360px;
@@ -136,6 +153,9 @@ body {
       .wrap {
         height: 60px;
         line-height: 60px;
+        width: 88%;
+        position: relative;
+        margin: 0 auto;
         img {
           width: 60px;
           height: 60px;
@@ -162,14 +182,14 @@ body {
       }
     }
     .channels {
-      margin-right: 5px;
+      margin-right: 0;
       .active {
         background: @baseColor;
         border-right: 4px solid @lighten1;
       }
       .channel {
         position: relative;
-        padding: 10px 0 15px 0;
+        padding: 10px 0 10px 0;
         font-size: 0.9em;
         cursor: pointer;
         .wrap {
@@ -177,8 +197,8 @@ body {
           margin: 0 auto;
           position: relative;
           img {
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             padding: 3px;
             float: left;
@@ -199,7 +219,7 @@ body {
     background-color:@baseColor;
     .channelMessages{
       height: auto;
-      margin: 20px;
+      margin: 20px 20px 0 20px;
       max-height: calc(~"100% - 130px");
       overflow-y: auto;
       overflow-x: hidden;
@@ -240,7 +260,7 @@ body {
       width: 100%;
       z-index: 99;
       .channelInputArea{
-        margin: 20px 0 30px;
+        margin: 0 0 50px;
         .innerInputArea{
           background-color: @lighten1;
           margin-left: 20px;
@@ -340,9 +360,13 @@ body {
             width: 100%;
             .meta {
               display: none;
-              img {
-                margin-right: 0;
+              .preview {
+                font-size: 14px;
+                margin: 0;
               }
+            }
+            img {
+              margin-right: 0;
             }
           }
         }

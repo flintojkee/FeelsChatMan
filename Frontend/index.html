@@ -5,7 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- jquery works wierdly with electron, use this code instead -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <script>
+	    window.jQuery = window.$ = require('jquery');
+	</script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://use.fontawesome.com/3ad6757c73.js"></script>
     <link rel="stylesheet/less" type="text/css" href="styles/main.less"/>
@@ -16,29 +21,28 @@
 <div class="titlebar">
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">FeelsChatMan</a>
-            </div>
-            <img src="feelsgoodman.svg">
-            <button class="btn btn-danger navbar-btn"></button>
-            <button class="btn btn-warning navbar-btn"></button>
-            <button class="btn btn-success navbar-btn"></button>
-
-
+            <div class="navbar-title">Feels Chat Man</div>
+            <img class="feelsGoodMan" src="feelsgoodmanColor.svg">
+            <img class="feelsChatMan" src="feelschatman.svg">
+            <button class="btn btn-danger navbar-btn" id="close"></button>
+            <button class="btn btn-warning navbar-btn" id="expand"></button>
+            <button class="btn btn-success navbar-btn" id="minimize"></button>
         </div>
     </nav>
 </div>
 <div class="login-page">
-    <div class="form">
+  <div class="form">
         <form class="register-form">
-            <input type="text" placeholder="name"/>
-            <input type="password" placeholder="password"/>
-            <button type="button">create</button>
+            <input type="text" name="r_username" placeholder="name"/>
+            <input type="password" name="r_password" placeholder="password"/>
+            <input type="hidden" name="r_colour" value="Red" />
+
+            <button id="register-btn" type="button">create</button>
             <p class="message">Already registered? <a href="#">Sign In</a></p>
         </form>
         <form class="login-form">
-            <input type="text" placeholder="username"/>
-            <input type="password" placeholder="password"/>
+            <input type="text" name="l_username" placeholder="username"/>
+            <input type="password" name="l_password" placeholder="password"/>
             <button id="login-btn" type="button">login</button>
             <p class="message">Not registered? <a href="#">Create an account</a></p>
         </form>
@@ -58,20 +62,38 @@
         </div>
         <div class="channels">
             <div class="channel">
-            <div class="wrap">
-                <img src="iha.png" alt="" />
-                <div class="meta">
-                    <p class="name">IHA</p>
-                    <p class="preview">International Hikamori Organization</p>
-                </div>
-            </div>
-            </div>
-            <div class="channel ative">
                 <div class="wrap">
                     <img src="iha.png" alt="" />
                     <div class="meta">
-                        <p class="name">IHA Active</p>
-                        <p class="preview">International Hikamori Organization</p>
+                        <div class="name">IHA</div>
+                        <div class="preview">International Hikamori Organization</div>
+                    </div>
+                </div>
+            </div>
+            <div class="channel active">
+                <div class="wrap">
+                    <img src="iha.png" alt="" />
+                    <div class="meta">
+                        <div class="name">IHA</div>
+                        <div class="preview">International Hikamori Organization</div>
+                    </div>
+                </div>
+            </div>
+            <div class="channel">
+                <div class="wrap">
+                    <img src="iha.png" alt="" />
+                    <div class="meta">
+                        <div class="name">IHA</div>
+                        <div class="preview">International Hikamori Organization</div>
+                    </div>
+                </div>
+            </div>
+            <div class="channel">
+                <div class="wrap">
+                    <img src="iha.png" alt="" />
+                    <div class="meta">
+                        <div class="name">IHA</div>
+                        <div class="preview">International Hikamori Organization</div>
                     </div>
                 </div>
             </div>
@@ -85,20 +107,7 @@
             <div class="chatLineMassage">
                 <div class="time">04:23</div>
                 <div class="username">TopKek:</div>
-                <div class="messageText ">▒▒▒▒▒▒▒▒▄▄▄▄▄▄▄▄▒▒▒▒▒▒▒▒
-                    ▒▒▒▒▒▄█▀▀░░░░░░▀▀█▄▒▒▒▒▒
-                    ▒▒▒▄█▀▄██▄░░░░░░░░▀█▄▒▒▒
-                    ▒▒█▀░▀░░▄▀░░░░▄▀▀▀▀░▀█▒▒
-                    ▒█▀░░░░███░░░░▄█▄░░░░▀█▒
-                    ▒█░░░░░░▀░░░░░▀█▀░░░░░█▒
-                    ▒█░░░░░░░░░░░░░░░░░░░░█▒
-                    ▒█░░██▄░░▀▀▀▀▄▄░░░░░░░█▒
-                    ▒▀█░█░█░░░▄▄▄▄▄░░░░░░█▀▒
-                    ▒▒▀█▀░▀▀▀▀░▄▄▄▀░░░░▄█▀▒▒
-                    ▒▒▒█░░░░░░▀█░░░░░▄█▀▒▒▒▒
-                    ▒▒▒█▄░░░░░▀█▄▄▄█▀▀▒▒▒▒▒▒
-                    ▒▒▒▒▀▀▀▀▀▀▀▒▒▒▒▒▒▒▒▒▒▒▒▒
-                </div>
+                <div class="messageText ">tst msg</div>
             </div>
         </div>
         <form>
@@ -115,6 +124,11 @@
     </div>
     <div class="rightPanel"></div>
 </div>
+
+<script type="text/javascript">
+  require('./renderer')
+</script>
+
 <script src="message.js"></script>
 </body>
 </html>
