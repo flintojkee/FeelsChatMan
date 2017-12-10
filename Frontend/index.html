@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="libraries/bootstrap.min.css">
-
+    <script src="libraries/bootstrap.min.js"></script>
 	<!-- jquery works wierdly with electron, use this code instead -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
     <script>
@@ -36,7 +36,23 @@
             <input type="text" name="r_username" placeholder="name"/>
             <input type="password" name="r_password" placeholder="password"/>
             <input type="hidden" name="r_colour" value="Red" />
-
+            <select class="form-control" id="colorpicker">
+                <option style="background: blue;">blue</option>
+                <option style="background: coral;">coral</option>
+                <option style="background: dodgerblue;">dodgerblue</option>
+                <option style="background: springgreen;">springgreen</option>
+                <option style="background: yellowgreen;">yellowgreen</option>
+                <option style="background: green;">green</option>
+                <option style="background: orangered;">orangered</option>
+                <option style="background: red;">red</option>
+                <option style="background: goldenrod;">goldenrod</option>
+                <option style="background: hotpink;">hotpink</option>
+                <option style="background: cadetblue;">cadetblu</option>
+                <option style="background: seagreen;"> seagreen</option>
+                <option style="background: chocolate;">chocolate</option>
+                <option style="background: blueviolet;">blueviolet</option>
+                <option style="background: firebrick;"></option>
+            </select>
             <button id="register-btn" type="button">create</button>
             <p class="message">Already registered? <a href="#">Sign In</a></p>
         </form>
@@ -61,7 +77,7 @@
             </div>
         </div>
         <div class="channels scrollbar">
-            <div class="addChannel">
+            <div class="addChannel" data-toggle="modal" data-target="#addChannelModal">
                 <div class="wrap">
                     <img src="./images/plus.svg" alt="" />
                     <div class="meta">
@@ -212,10 +228,30 @@
     </div>
     <div class="rightPanel"></div>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="addChannelModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
 <script type="text/javascript">
   require('./renderer')
 </script>
 <script src="libraries/emotes.js"></script>
 <script src="frontend.js"></script>
+
 </body>
 </html>
