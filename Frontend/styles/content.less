@@ -168,7 +168,7 @@ body {
     .profile {
       width: 100%;
       margin: 0 auto;
-      background: @darken1;
+      background: @darken2;
       .wrap {
         height: 60px;
         line-height: 60px;
@@ -195,13 +195,13 @@ body {
         padding: 10px 0 10px 46px;
         width: 100%;
         border: none;
-        background: @darken1;
+        background: @darken2;
         opacity: 0.5;
         color: #f5f5f5;
       }
     }
     .scrollbar{
-      background-color: @darken1;
+      background-color: @darken2;
     }
     .scrollbar::-webkit-scrollbar-thumb {
       border-radius: 10px;
@@ -217,7 +217,7 @@ body {
       overflow-y: auto;
       overflow-x: hidden;
       margin-right: 0;
-      .active {
+      #active {
         background: @baseColor;
         border-right: 3px solid @lighten3;
       }
@@ -230,6 +230,7 @@ body {
           width: 100%;
           height: 50px;
           margin-bottom: 10px;
+          margin-left: 5px;
           position: relative;
           .meta{
             color: @lighten4;
@@ -248,6 +249,37 @@ body {
       .channel:hover {
         background: @baseColor;
       }
+      .addChannel{
+        position: relative;
+        padding: 10px 0 10px 0;
+        font-size: 0.9em;
+        cursor: pointer;
+        .wrap {
+          width: 100%;
+          height: 50px;
+          margin-bottom: 10px;
+          margin-left: 5px;
+          position: relative;
+          .meta{
+            color: @lighten4;
+            font-size: 1.5rem;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            .name{
+              padding-top: 17px;
+            }
+          }
+          img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            padding: 3px;
+            float: left;
+          }
+        }
+      }
+      .addChannel:hover {
+        background: @baseColor;
+      }
     }
   }
   .mainPanel {
@@ -257,6 +289,15 @@ body {
     overflow: hidden;
     position: relative;
     background-color: @baseColor;
+    .channelTitle{
+      height: @channelTitleHeight;
+      background-color: @darken1;
+      color: @lighten4;
+      font-size: 25px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      padding-left: 20px;
+    }
     .channelMessages {
       height: auto;
       margin: 20px 20px 0 20px;
@@ -374,8 +415,8 @@ body {
 @media screen and (max-width: 1020px) {
   .frame {
     .leftPanel {
-      width:70px;
-      min-width: 60px;
+      width:@leftPanelWidthMin;
+      min-width: @leftPanelWidthMin;
       .profile {
         width: 100%;
         margin: 0 auto;
@@ -393,17 +434,33 @@ body {
       .channels {
         height: calc(~"100% - 100px");
         .channel {
+           padding: 0;
+           width: 70px;
+           height: 60px;
+           .wrap {
+             width: 88%;
+             margin-left: 5px;
+             .meta {
+               display: none;
+               .preview {
+                 font-size: 14px;
+                 margin: 0;
+               }
+             }
+             img {
+               margin: auto;
+             }
+           }
+         }
+        .addChannel {
           padding: 0;
           width: 70px;
           height: 60px;
           .wrap {
-            width: 81%;
+            width: 88%;
+            margin-left: 5px;
             .meta {
               display: none;
-              .preview {
-                font-size: 14px;
-                margin: 0;
-              }
             }
             img {
               margin: auto;
@@ -413,7 +470,7 @@ body {
       }
     }
     .mainPanel {
-      width: calc(~"100% - 60px");
+      width: calc(~"100% - 70px");
       min-width: 300px !important;
 
     }
