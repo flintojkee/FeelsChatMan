@@ -67,8 +67,17 @@ return false;
 function initSocket() {
     socket.emit('logged', socket.username);
 
-    function sendMessage(message) {
-        socket.emit('send message', message);
+    var sendMessage = function(message) {
+        console.log(message)
+        socket.emit('new message', message);
     }
+
+    socket.on('new message', (message) => {
+        newMessage(message);
+})
+
+
+
+    module.exports.sendMessage = sendMessage;
 }
 })

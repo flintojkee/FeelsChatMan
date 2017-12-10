@@ -1,8 +1,9 @@
+var renderer = require('./renderer.js');
 function newMessage(newMessage) {
     if($.trim(newMessage.msg) === '') {
         return false;
     }
-    var $new = $('<div class="chatLineMassage"><div class="time">'+ newMessage.date +'</div><div class="username">' + newMessage.username + ':</div><div class="messageText">' + newMessage.msg + '</div></div>');
+    var $new = $('<div class="chatLineMassage"><div class="time">'+ newMessage.date +'</div><div class="username">' + newMessage.username + ':</div><div class="messageText">'+( twitchEmoji.parse(newMessage.msg)+'</div></div>'));
     $('.channelMessages').append($new);
     $('#messageArea').val('');
     var $cont = $('.channelMessages');
@@ -17,7 +18,7 @@ $('.channel').click(function(){
     $('.channelTitle').text(title);
 });
 $('.addChannel').click(function() {
-}
+})
 $(window).on('keydown', function(e) {
     var d = new Date(); // for now
     d.getHours();
@@ -29,6 +30,10 @@ $(window).on('keydown', function(e) {
             date:d.getHours()+':'+ d.getMinutes()
         };
         newMessage(newmsg);
+        // Send to server
+        renderer.sendMessage(newmsg);
+        //
+
         return false;
     }
 });

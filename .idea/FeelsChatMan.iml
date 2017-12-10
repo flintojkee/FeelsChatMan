@@ -11,5 +11,7 @@
     <orderEntry type="library" name="less" level="application" />
     <orderEntry type="library" name="bootstrap" level="application" />
     <orderEntry type="library" name="3ad6757c73" level="application" />
+    <orderEntry type="library" name="jquery-2.2.0" level="application" />
+    <orderEntry type="library" name="twitchemoji" level="application" />
   </component>
 </module>
