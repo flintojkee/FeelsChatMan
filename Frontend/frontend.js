@@ -9,7 +9,15 @@ function newMessage(newMessage) {
     $cont[0].scrollTop = $cont[0].scrollHeight;
 
 };
+$('.channel').click(function(){
+    $('.channel').removeAttr('id');
+    $(this).attr('id','active');
+    var title = jQuery(this).find('.name').text();
 
+    $('.channelTitle').text(title);
+});
+$('.addChannel').click(function() {
+}
 $(window).on('keydown', function(e) {
     var d = new Date(); // for now
     d.getHours();
@@ -29,7 +37,7 @@ $('.message a').click(function(){
     $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
 });
 
-var logged = function (username){
+var logged = function (username, colour){
    $('.login-page').addClass("hidden");
    $('.frame').find("#username").text(username);
    $('.frame').removeClass("hidden");

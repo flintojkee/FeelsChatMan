@@ -55,22 +55,30 @@
                 <img id="profile-img" src="max.jpg" class="online" alt=""/>
                 <div class="username" id="username">User</div>
             </div>
-        </div>
-        <div class="search">
-            <label><i class="fa fa-search"></i></label>
-            <input type="text" placeholder="Search channels..."/>
+            <div class="search">
+                <label><i class="fa fa-search"></i></label>
+                <input type="text" placeholder="Search channels..."/>
+            </div>
         </div>
         <div class="channels scrollbar">
+            <div class="addChannel">
+                <div class="wrap">
+                    <img src="./images/plus.svg" alt="" />
+                    <div class="meta">
+                        <div class="name">Add channel</div>
+                    </div>
+                </div>
+            </div>
             <div class="channel">
                 <div class="wrap">
                     <img src="iha.png" alt="" />
                     <div class="meta">
-                        <div class="name">IHA</div>
+                        <div class="name">HUIHA</div>
                         <div class="preview">International Hikamori </div>
                     </div>
                 </div>
             </div>
-            <div class="channel active">
+            <div class="channel">
                 <div class="wrap">
                     <img src="iha.png" alt="" />
                     <div class="meta">
@@ -179,10 +187,10 @@
                 </div>
             </div>
         </div>
-        <div class="action-bar"></div>
     </div>
     <div class="mainPanel">
         <div class="channelTitle">
+           iha
         </div>
         <div class="channelMessages scrollbar">
             <div class="chatLineMassage">
@@ -204,7 +212,6 @@
     </div>
     <div class="rightPanel"></div>
 </div>
-
 <script type="text/javascript">
   require('./renderer')
 </script>
