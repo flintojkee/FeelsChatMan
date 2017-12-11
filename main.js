@@ -17,7 +17,7 @@ function createWindow () {
       height: 600,
       frame: false,
       minWidth: 600,
-      minHeight: 300,
+      minHeight: 456,
       show: false,
       backgroundColor: '#3e3e3e'
   });

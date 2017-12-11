@@ -10,15 +10,30 @@ function newMessage(newMessage) {
     $cont[0].scrollTop = $cont[0].scrollHeight;
 
 };
-$('.channel').click(function(){
+$(document).on('click',  '.channel', function(){
+    console.log('1');
     $('.channel').removeAttr('id');
     $(this).attr('id','active');
     var title = jQuery(this).find('.name').text();
 
     $('.channelTitle').text(title);
 });
-$('.addChannel').click(function() {
-})
+function newChannel(newchannel){
+    if($.trim(newchannel.name) === '') {
+        return false;
+    }
+    var $new = $('<div class="channel"><div class="wrap"><img src="iha.png" alt=""/><div class="meta"><div class="name">'+ newchannel.name+'</div><div class="preview">'+ newchannel.description+'</div></div></div></div>');
+    $('.channels').append($new);
+};
+$('#addChannelBtn').click(function(){
+    var newchannel = {
+        name:$("#channelName").val(),
+        password:$("#channelPassword").val(),
+        description:$("#channelDescription").val()
+    };
+    newChannel(newchannel);
+});
+
 $(window).on('keydown', function(e) {
     var d = new Date(); // for now
     d.getHours();
@@ -31,7 +46,7 @@ $(window).on('keydown', function(e) {
         };
         newMessage(newmsg);
         // Send to server
-        renderer.sendMessage(newmsg);
+      //  renderer.sendMessage(newmsg);
         //
 
         return false;

@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="libraries/bootstrap.min.css">
-    <script src="libraries/bootstrap.min.js"></script>
-	<!-- jquery works wierdly with electron, use this code instead -->
+
+    <!-- jquery works wierdly with electron, use this code instead -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
     <script>
-	    window.jQuery = window.$ = require('jquery');
-	</script>
+        window.jQuery = window.$ = require('jquery');
+    </script>
     <script src="libraries/bootstrap.min.js"></script>
     <script src="https://use.fontawesome.com/3ad6757c73.js"></script>
     <link rel="stylesheet/less" type="text/css" href="styles/main.less"/>
@@ -30,12 +30,12 @@
         </div>
     </nav>
 </div>
-<div class="login-page">
-  <div class="form">
+<div class="login-page hidden">
+    <div class="form">
         <form class="register-form">
             <input type="text" name="r_username" placeholder="name"/>
             <input type="password" name="r_password" placeholder="password"/>
-            <input type="hidden" name="r_colour" value="Red" />
+            <input type="hidden" name="r_colour" value="Red"/>
             <select class="form-control" id="colorpicker">
                 <option style="background: blue;">blue</option>
                 <option style="background: coral;">coral</option>
@@ -64,7 +64,7 @@
         </form>
     </div>
 </div>
-<div class="frame hidden">
+<div class="frame">
     <div class="leftPanel">
         <div class="profile">
             <div class="wrap">
@@ -79,126 +79,9 @@
         <div class="channels scrollbar">
             <div class="addChannel" data-toggle="modal" data-target="#addChannelModal">
                 <div class="wrap">
-                    <img src="./images/plus.svg" alt="" />
+                    <img src="./images/plus.svg" alt=""/>
                     <div class="meta">
                         <div class="name">Add channel</div>
-                    </div>
-                </div>
-            </div>
-            <div class="channel">
-                <div class="wrap">
-                    <img src="iha.png" alt="" />
-                    <div class="meta">
-                        <div class="name">HUIHA</div>
-                        <div class="preview">International Hikamori </div>
-                    </div>
-                </div>
-            </div>
-            <div class="channel">
-                <div class="wrap">
-                    <img src="iha.png" alt="" />
-                    <div class="meta">
-                        <div class="name">IHA</div>
-                        <div class="preview">International Organization Organization Organization</div>
-                    </div>
-                </div>
-            </div>
-            <div class="channel">
-                <div class="wrap">
-                    <img src="iha.png" alt="" />
-                    <div class="meta">
-                        <div class="name">IHA</div>
-                        <div class="preview">International Hikamori Organization</div>
-                    </div>
-                </div>
-            </div>
-            <div class="channel">
-                <div class="wrap">
-                    <img src="iha.png" alt="" />
-                    <div class="meta">
-                        <div class="name">IHA</div>
-                        <div class="preview">International Hikamori Organization</div>
-                    </div>
-                </div>
-            </div>
-            <div class="channel">
-                <div class="wrap">
-                    <img src="iha.png" alt="" />
-                    <div class="meta">
-                        <div class="name">IHA</div>
-                        <div class="preview">International Hikamori Organization</div>
-                    </div>
-                </div>
-            </div>
-            <div class="channel">
-                <div class="wrap">
-                    <img src="iha.png" alt="" />
-                    <div class="meta">
-                        <div class="name">IHA</div>
-                        <div class="preview">International Hikamori Organization</div>
-                    </div>
-                </div>
-            </div>
-            <div class="channel">
-                <div class="wrap">
-                    <img src="iha.png" alt="" />
-                    <div class="meta">
-                        <div class="name">IHA</div>
-                        <div class="preview">International Hikamori Organization</div>
-                    </div>
-                </div>
-            </div>
-            <div class="channel">
-                <div class="wrap">
-                    <img src="iha.png" alt="" />
-                    <div class="meta">
-                        <div class="name">IHA</div>
-                        <div class="preview">International Hikamori Organization</div>
-                    </div>
-                </div>
-            </div>
-            <div class="channel">
-                <div class="wrap">
-                    <img src="iha.png" alt="" />
-                    <div class="meta">
-                        <div class="name">IHA</div>
-                        <div class="preview">International Hikamori Organization</div>
-                    </div>
-                </div>
-            </div>
-            <div class="channel">
-                <div class="wrap">
-                    <img src="iha.png" alt="" />
-                    <div class="meta">
-                        <div class="name">IHA</div>
-                        <div class="preview">International Hikamori Organization</div>
-                    </div>
-                </div>
-            </div>
-            <div class="channel">
-                <div class="wrap">
-                    <img src="iha.png" alt="" />
-                    <div class="meta">
-                        <div class="name">IHA</div>
-                        <div class="preview">International Hikamori Organization</div>
-                    </div>
-                </div>
-            </div>
-            <div class="channel">
-                <div class="wrap">
-                    <img src="iha.png" alt="" />
-                    <div class="meta">
-                        <div class="name">IHA</div>
-                        <div class="preview">International Hikamori Organization</div>
-                    </div>
-                </div>
-            </div>
-            <div class="channel">
-                <div class="wrap">
-                    <img src="iha.png" alt="" />
-                    <div class="meta">
-                        <div class="name">IHA</div>
-                        <div class="preview">International Hikamori Organization</div>
                     </div>
                 </div>
             </div>
@@ -206,7 +89,7 @@
     </div>
     <div class="mainPanel">
         <div class="channelTitle">
-           iha
+            iha
         </div>
         <div class="channelMessages scrollbar">
             <div class="chatLineMassage">
@@ -233,25 +116,52 @@
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
-            </div>
-            <div class="modal-body">
-                <p>Some text in the modal.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <div class="container-fluid">
+                <div class="col-xs-6">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Create new channel</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+                                <input id="channelName" type="text" class="form-control" name="name" placeholder="Name" maxlength="15">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input id="channelPassword" type="password" class="form-control" name="password" placeholder="Password" maxlength="10">
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
+                                <input id="channelDescription" type="text" class="form-control" name="msg" placeholder="Description" maxlength="35">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal" id="addChannelBtn">Create</button>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Join existing channel</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Some text in the modal.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal" id="joinChannelBtn">Join
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
 </div>
 <script type="text/javascript">
-  require('./renderer')
+    require('./renderer')
 </script>
 <script src="libraries/emotes.js"></script>
 <script src="frontend.js"></script>
-
 </body>
 </html>
