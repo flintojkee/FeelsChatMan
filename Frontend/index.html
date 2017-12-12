@@ -13,6 +13,7 @@
     </script>
     <script src="libraries/bootstrap.min.js"></script>
     <script src="https://use.fontawesome.com/3ad6757c73.js"></script>
+
     <link rel="stylesheet/less" type="text/css" href="styles/main.less"/>
     <!-- LESS JavaScript компілятор -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
@@ -30,7 +31,7 @@
         </div>
     </nav>
 </div>
-<div class="login-page hidden">
+<div class="login-page">
     <div class="form">
         <form class="register-form">
             <input type="text" name="r_username" placeholder="name"/>
@@ -64,7 +65,7 @@
         </form>
     </div>
 </div>
-<div class="frame">
+<div class="frame hidden">
     <div class="leftPanel">
         <div class="profile">
             <div class="wrap">
@@ -88,9 +89,7 @@
         </div>
     </div>
     <div class="mainPanel">
-        <div class="channelTitle">
-            iha
-        </div>
+        <div class="channelTitle">iha</div>
         <div class="channelMessages scrollbar">
             <div class="chatLineMassage">
                 <div class="time">04:23</div>
@@ -103,7 +102,7 @@
                 <div class="innerInputArea">
                     <div class="sendFile">
                     </div>
-                    <textarea rows="1" placeholder="Повідомлення#general" class="textArea scrollbar" id="messageArea"
+                    <textarea rows="1" placeholder="Повідомлення #general" class="textArea scrollbar" id="messageArea"
                               style="height: auto; "></textarea>
                 </div>
             </div>
@@ -122,19 +121,19 @@
                         <h4 class="modal-title">Create new channel</h4>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form id="createChannel-form">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
-                                <input id="channelName" type="text" class="form-control" name="name" placeholder="Name" maxlength="15">
+                                <input id="channelName" type="text" class="form-control" name="c_name" placeholder="Name" maxlength="15">
                             </div>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <input id="channelPassword" type="password" class="form-control" name="password" placeholder="Password" maxlength="10">
+                                <input id="channelPassword" type="password" class="form-control" name="c_password" placeholder="Password" maxlength="10">
                             </div>
                             <br>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
-                                <input id="channelDescription" type="text" class="form-control" name="msg" placeholder="Description" maxlength="35">
+                                <input id="channelDescription" type="text" class="form-control" name="c_desc" placeholder="Description" maxlength="35">
                             </div>
                         </form>
                     </div>
@@ -161,7 +160,7 @@
 <script type="text/javascript">
     require('./renderer')
 </script>
-<script src="libraries/emotes.js"></script>
 <script src="frontend.js"></script>
+<script src="libraries/emotes.js"></script>
 </body>
 </html>
