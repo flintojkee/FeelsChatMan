@@ -34,7 +34,7 @@ $(document).ready(() => {
                     logged(socket.username, data.user.colour);
                     initSocket();
                 } else {
-                    alert(data.msg);
+                    alerts.err("Fail",data.msg);
                 }
                 return false;
             })
@@ -51,9 +51,9 @@ $(document).ready(() => {
                 console.log("done register request")
                 if (data.success) {
                     //TODO some UI action(?)
-                    alert(data.msg);
+                    alerts.succ("Success",data.msg);
                 } else {
-                    alert(data.msg);
+                    alerts.err("Fail",data.msg);
                 }
                 return false;
             })
@@ -78,7 +78,7 @@ $(document).ready(() => {
                     newChannel(data.channel)
                     module.exports.newChannel(data.channel);
                 } else {
-                    alert(data.msg);
+                    alerts.err("Fail",data.msg);
                 }
             })
             .fail(err => {

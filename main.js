@@ -49,7 +49,7 @@ function createWindow () {
     }));
 
     mainWindow.once('ready-to-show', () => {
-        setTimeout(function(){splash.destroy(); mainWindow.show();},0);
+        setTimeout(function(){splash.destroy(); mainWindow.show();},1000);
     });
 
   // Open the DevTools.

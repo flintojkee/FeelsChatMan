@@ -5,19 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee97d15b-b492-4bac-8b98-b57490178c0f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Frontend/more_js/alerts.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Frontend/styles/leftPanel.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Frontend/styles/mainPanel.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Frontend/styles/rightPanel.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Frontend/styles/titleBar.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Frontend/styles/media.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Frontend/frontend.js" afterPath="$PROJECT_DIR$/Frontend/frontend.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Frontend/index.html" afterPath="$PROJECT_DIR$/Frontend/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Frontend/more_js/constants.js" afterPath="$PROJECT_DIR$/Frontend/more_js/constants.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Frontend/renderer.js" afterPath="$PROJECT_DIR$/Frontend/renderer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Frontend/styles/colorScheme.less" afterPath="$PROJECT_DIR$/Frontend/styles/colorScheme.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Frontend/styles/content.less" afterPath="$PROJECT_DIR$/Frontend/styles/content.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Frontend/styles/sweetAlert.less" afterPath="$PROJECT_DIR$/Frontend/styles/sweetAlert.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Frontend/styles/leftPanel.less" afterPath="$PROJECT_DIR$/Frontend/styles/leftPanel.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.js" afterPath="$PROJECT_DIR$/main.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,25 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Frontend/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="174" column="31" lean-forward="false" selection-start-line="174" selection-start-column="31" selection-end-line="174" selection-end-column="31" />
-              <folding>
-                <element signature="n#style#0;n#option#7;n#select#0;n#form#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#option#9;n#select#0;n#form#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#option#10;n#select#0;n#form#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="renderer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Frontend/renderer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="30" column="31" lean-forward="false" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+            <state relative-caret-position="-89">
+              <caret line="80" column="48" lean-forward="false" selection-start-line="80" selection-start-column="48" selection-end-line="80" selection-end-column="48" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -57,11 +37,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="content.less" pinned="false" current-in-tab="true">
+      <file leaf-file-name="content.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Frontend/styles/content.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="29" lean-forward="false" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
+            <state relative-caret-position="511">
+              <caret line="158" column="14" lean-forward="false" selection-start-line="158" selection-start-column="14" selection-end-line="158" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="leftPanel.less" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Frontend/styles/leftPanel.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="307">
+              <caret line="82" column="22" lean-forward="true" selection-start-line="82" selection-start-column="22" selection-end-line="82" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -70,21 +60,29 @@
       <file leaf-file-name="titleBar.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Frontend/styles/titleBar.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="1" />
+            <state relative-caret-position="115">
+              <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rightPanel.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Frontend/styles/rightPanel.less">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-              <folding>
-                <element signature="e#12#157#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="421">
+              <caret line="51" column="72" lean-forward="false" selection-start-line="51" selection-start-column="72" selection-end-line="51" selection-end-column="72" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Frontend/styles/main.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -101,32 +99,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.js">
+      <file leaf-file-name="media.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Frontend/styles/media.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="51" column="69" lean-forward="false" selection-start-line="51" selection-start-column="69" selection-end-line="51" selection-end-column="69" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Frontend/styles/main.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="leftPanel.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Frontend/styles/leftPanel.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="76" column="27" lean-forward="true" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
-              <folding />
+            <state relative-caret-position="0">
+              <caret line="65" column="1" lean-forward="false" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
+              <folding>
+                <element signature="e#38#1294#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -134,8 +114,18 @@
       <file leaf-file-name="frontend.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Frontend/frontend.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
+            <state relative-caret-position="493">
               <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="colorScheme.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Frontend/styles/colorScheme.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="183">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -182,19 +172,20 @@
         <option value="$PROJECT_DIR$/Frontend/splash.html" />
         <option value="$PROJECT_DIR$/Frontend/libraries/src/sweetalert.css" />
         <option value="$PROJECT_DIR$/Frontend/styles/main.less" />
-        <option value="$PROJECT_DIR$/Frontend/styles/colorScheme.less" />
         <option value="$PROJECT_DIR$/Frontend/more_js/constants.js" />
         <option value="$PROJECT_DIR$/Frontend/index.html" />
         <option value="$PROJECT_DIR$/Frontend/styles/sweetAlert.less" />
-        <option value="$PROJECT_DIR$/Frontend/renderer.js" />
         <option value="$PROJECT_DIR$/Frontend/more_js/alerts.js" />
         <option value="$PROJECT_DIR$/Frontend/styles/mainPanel.less" />
         <option value="$PROJECT_DIR$/Frontend/styles/rightPanel.less" />
         <option value="$PROJECT_DIR$/Frontend/frontend.js" />
-        <option value="$PROJECT_DIR$/Frontend/styles/leftPanel.less" />
-        <option value="$PROJECT_DIR$/main.js" />
         <option value="$PROJECT_DIR$/Frontend/styles/titleBar.less" />
+        <option value="$PROJECT_DIR$/Frontend/renderer.js" />
+        <option value="$PROJECT_DIR$/main.js" />
+        <option value="$PROJECT_DIR$/Frontend/styles/colorScheme.less" />
+        <option value="$PROJECT_DIR$/Frontend/styles/media.less" />
         <option value="$PROJECT_DIR$/Frontend/styles/content.less" />
+        <option value="$PROJECT_DIR$/Frontend/styles/leftPanel.less" />
       </list>
     </option>
   </component>
@@ -343,12 +334,12 @@
       <workItem from="1513089192548" duration="5540000" />
       <workItem from="1513156263187" duration="12228000" />
       <workItem from="1513172678647" duration="85000" />
-      <workItem from="1513172905624" duration="27326000" />
+      <workItem from="1513172905624" duration="28449000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185490000" />
+    <option name="totallyTimeSpent" value="186613000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -394,7 +385,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/NIT/Templates/suits_chat.html" />
     <entry file="file://$PROJECT_DIR$/Frontend/max.jpg" />
     <entry file="file://$PROJECT_DIR$/Frontend/login.html" />
     <entry file="file://$PROJECT_DIR$/package.json">
@@ -593,24 +583,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/styles/colorScheme.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/styles/mainPanel.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="93" column="1" lean-forward="false" selection-start-line="93" selection-start-column="1" selection-end-line="93" selection-end-column="1" />
-          <folding>
-            <element signature="e#11#2051#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/styles/rightPanel.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -633,26 +605,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/frontend.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/styles/leftPanel.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="76" column="27" lean-forward="true" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/renderer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="30" column="31" lean-forward="false" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+        <state relative-caret-position="-89">
+          <caret line="80" column="48" lean-forward="false" selection-start-line="80" selection-start-column="48" selection-end-line="80" selection-end-column="48" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -661,17 +617,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="51" column="69" lean-forward="false" selection-start-line="51" selection-start-column="69" selection-end-line="51" selection-end-column="69" />
+        <state relative-caret-position="421">
+          <caret line="51" column="72" lean-forward="false" selection-start-line="51" selection-start-column="72" selection-end-line="51" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/frontend.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/styles/colorScheme.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/styles/titleBar.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="1" />
+        <state relative-caret-position="115">
+          <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/styles/media.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="65" column="1" lean-forward="false" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
+          <folding>
+            <element signature="e#38#1294#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -683,10 +665,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/styles/mainPanel.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="93" column="1" lean-forward="false" selection-start-line="93" selection-start-column="1" selection-end-line="93" selection-end-column="1" />
+          <folding>
+            <element signature="e#11#2051#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/styles/content.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="29" lean-forward="false" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
+        <state relative-caret-position="511">
+          <caret line="158" column="14" lean-forward="false" selection-start-line="158" selection-start-column="14" selection-end-line="158" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/styles/leftPanel.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="82" column="22" lean-forward="true" selection-start-line="82" selection-start-column="22" selection-end-line="82" selection-end-column="22" />
           <folding />
         </state>
       </provider>
