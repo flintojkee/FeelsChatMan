@@ -1,5 +1,5 @@
 const CONSTS = {
-	PORT: 3000,
+	PORT: 10000,
 	HOST: "localhost",
 }
 

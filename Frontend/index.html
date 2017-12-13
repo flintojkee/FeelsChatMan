@@ -19,6 +19,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
 </head>
 <body>
+
 <div class="titlebar">
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -31,29 +32,30 @@
         </div>
     </nav>
 </div>
-<div class="login-page">
+<div class="login-page ">
     <div class="form">
         <form class="register-form">
             <input type="text" name="r_username" placeholder="name"/>
             <input type="password" name="r_password" placeholder="password"/>
-            <select class="form-control" id="colorpicker">
-                <option style="background: blue;">Blue</option>
-                <option style="background: coral;">Coral</option>
-                <option style="background: dodgerblue;">Dodgerblue</option>
-                <option style="background: springgreen;">Springgreen</option>
-                <option style="background: yellowgreen;">Yellowgreen</option>
-                <option style="background: green;">Green</option>
-                <option style="background: orangered;">Orangered</option>
-                <option style="background: red;">Red</option>
-                <option style="background: goldenrod;">Goldenrod</option>
-                <option style="background: hotpink;">Hotpink</option>
-                <option style="background: cadetblue;">Cadetblu</option>
-                <option style="background: seagreen;"> Seagreen</option>
-                <option style="background: chocolate;">Chocolate</option>
-                <option style="background: blueviolet;">Blueviolet</option>
-                <option style="background: firebrick;">Firebrick</option>
+            <label for="colourpicker">Select colour of nickname</label>
+            <select class="form-control" id="colourpicker" >
+                <option style="background: blue;" value="Blue">Blue</option>
+                <option style="background: coral;" value="Coral">Coral</option>
+                <option style="background: dodgerblue;" value="Dodgerblue">Dodgerblue</option>
+                <option style="background: springgreen;" value="Springgreen">Springgreen</option>
+                <option style="background: yellowgreen;" value="Yellowgreen">Yellowgreen</option>
+                <option style="background: green;" value="Green">Green</option>
+                <option style="background: orangered;" value="Orangered">Orangered</option>
+                <option style="background: red;" value="Red">Red</option>
+                <option style="background: goldenrod;" value="Goldenrod">Goldenrod</option>
+                <option style="background: hotpink;" value="Hotpink">Hotpink</option>
+                <option style="background: cadetblue;" value="Cadetblu">Cadetblu</option>
+                <option style="background: seagreen;" value="Seagreen">Seagreen</option>
+                <option style="background: chocolate;" value="Chocolate">Chocolate</option>
+                <option style="background: blueviolet;" value="Blueviolet">Blueviolet</option>
+                <option style="background: firebrick;" value="Firebrick">Firebrick</option>
             </select>
-            <input id="r_colour" type="hidden" name="r_colour" value=""/>
+            <input id="r_colour" type="hidden" name="r_colour" value="Red"/>
             <button id="register-btn" type="button">create</button>
             <p class="message">Already registered? <a href="#">Sign In</a></p>
         </form>
@@ -69,8 +71,9 @@
     <div class="leftPanel">
         <div class="profile">
             <div class="wrap">
-                <img id="profile-img" src="max.jpg" class="online" alt=""/>
-                <div class="username" id="username">User</div>
+                <img id="profile-img" src="iha.png" class="online" alt=""/>
+                <div class="username" id="username"></div>
+                <div class="hidden" id="usernameColour"></div>
             </div>
             <div class="search">
                 <label><i class="fa fa-search"></i></label>
@@ -86,16 +89,19 @@
                     </div>
                 </div>
             </div>
+            <div class="channel">
+                <div class="wrap"><img src="images/logo.png" alt=""/>
+                    <div class="meta">
+                        <div class="name">General</div>
+                        <div class="preview">Welcome to feels chat man</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="mainPanel">
-        <div class="channelTitle">iha</div>
+        <div class="channelTitle"></div>
         <div class="channelMessages scrollbar">
-            <div class="chatLineMassage">
-                <div class="time">04:23</div>
-                <div class="username">TopKek:</div>
-                <div class="messageText ">tst msg</div>
-            </div>
         </div>
         <form>
             <div class="channelInputArea">
@@ -124,21 +130,25 @@
                         <form id="createChannel-form">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
-                                <input id="channelName" type="text" class="form-control" name="c_name" placeholder="Name" maxlength="15">
+                                <input id="channelName" type="text" class="form-control" name="c_name"
+                                       placeholder="Name" maxlength="15">
                             </div>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <input id="channelPassword" type="password" class="form-control" name="c_password" placeholder="Password" maxlength="10">
+                                <input id="channelPassword" type="password" class="form-control" name="c_password"
+                                       placeholder="Password" maxlength="10">
                             </div>
                             <br>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
-                                <input id="channelDescription" type="text" class="form-control" name="c_desc" placeholder="Description" maxlength="35">
+                                <input id="channelDescription" type="text" class="form-control" name="c_desc"
+                                       placeholder="Description" maxlength="35">
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal" id="addChannelBtn">Create</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal" id="addChannelBtn">Create
+                        </button>
                     </div>
                 </div>
                 <div class="col-xs-6">

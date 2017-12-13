@@ -5,7 +5,9 @@ const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 const path = require('path')
 const url = require('url')
-
+const Menu = electron.Menu;
+const Tray = electron.Tray;
+var appIcon = null;
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
@@ -47,7 +49,7 @@ function createWindow () {
     }));
 
     mainWindow.once('ready-to-show', () => {
-        setTimeout(function(){splash.destroy(); mainWindow.show();},3000);
+        setTimeout(function(){splash.destroy(); mainWindow.show();},0);
     });
 
   // Open the DevTools.
@@ -61,7 +63,17 @@ function createWindow () {
     mainWindow = null
   })
 }
-
+app.on('ready', function(){
+    appIcon = new Tray('Frontend/images/feelsgoodman.png');
+    var contextMenu = Menu.buildFromTemplate([
+        { label: 'Item1', type: 'radio' },
+        { label: 'Item2', type: 'radio' },
+        { label: 'Item3', type: 'radio', checked: true },
+        { label: 'Item4', type: 'radio' }
+    ]);
+    appIcon.setToolTip('Feels chat man.');
+    appIcon.setContextMenu(contextMenu);
+});
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.

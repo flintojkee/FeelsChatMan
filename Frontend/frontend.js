@@ -12,7 +12,6 @@ function newMessage(newMessage) {
 
 };
 $(document).on('click', '.channel', function() {
-    console.log('1');
     $('.channel').removeAttr('id');
     $('.channelMessages').empty();
     $(this).attr('id', 'active');
@@ -45,7 +44,8 @@ $(window).on('keydown', function(e) {
             channel: $(".channelTitle").text(),
             username: $("#username").text(),
             msg: $("#messageArea").val(),
-            date: d.getHours() + ':' + d.getMinutes()
+            date: d.getHours() + ':' + d.getMinutes(),
+            colour:$("#usernameColour").text()
         };
         newMessage(newmsg);
 
@@ -67,6 +67,7 @@ $('.message a').click(function() {
 var logged = function(username, colour) {
     $('.login-page').addClass("hidden");
     $('.frame').find("#username").text(username);
+    $('.frame').find("#usernameColour").text(colour);
     $('.frame').removeClass("hidden");
 };
 
