@@ -13,7 +13,6 @@
     </script>
     <script src="libraries/bootstrap.min.js"></script>
     <script src="https://use.fontawesome.com/3ad6757c73.js"></script>
-
     <link rel="stylesheet/less" type="text/css" href="styles/main.less"/>
     <!-- LESS JavaScript компілятор -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
@@ -24,8 +23,8 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-title">Feels Chat Man</div>
-            <img class="feelsGoodMan" src="feelsgoodmanColor.svg">
-            <img class="feelsChatMan" src="feelschatman.svg">
+            <img class="feelsGoodMan" src="images/feelsgoodmanColor.svg">
+            <img class="feelsChatMan" src="images/feelschatman.svg">
             <button class="btn btn-danger navbar-btn" id="close"></button>
             <button class="btn btn-warning navbar-btn" id="expand"></button>
             <button class="btn btn-success navbar-btn" id="minimize"></button>
@@ -71,7 +70,7 @@
     <div class="leftPanel">
         <div class="profile">
             <div class="wrap">
-                <img id="profile-img" src="iha.png" class="online" alt=""/>
+                <img id="profile-img" src="images/iha.png" class="online" alt=""/>
                 <div class="username" id="username"></div>
                 <div class="hidden" id="usernameColour"></div>
             </div>
@@ -89,7 +88,7 @@
                     </div>
                 </div>
             </div>
-            <div class="channel">
+            <div class="channel" id="active">
                 <div class="wrap"><img src="images/logo.png" alt=""/>
                     <div class="meta">
                         <div class="name">General</div>
@@ -100,7 +99,7 @@
         </div>
     </div>
     <div class="mainPanel">
-        <div class="channelTitle"></div>
+        <div class="channelTitle">General</div>
         <div class="channelMessages scrollbar">
         </div>
         <form>
@@ -114,7 +113,12 @@
             </div>
         </form>
     </div>
-    <div class="rightPanel"></div>
+    <div class="rightPanel ">
+        <div class="channelMembersTitle"><h3>Online members</h3></div>
+        <div class="channelMembers scrollbar">
+            <div class="member">User</div>
+        </div>
+    </div>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="addChannelModal" role="dialog">
@@ -159,7 +163,7 @@
                         <p>Some text in the modal.</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal" id="joinChannelBtn">Join
+                        <button type="button" class="btn btn-success"  id="joinChannelBtn">Join
                         </button>
                     </div>
                 </div>

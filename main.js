@@ -65,14 +65,7 @@ function createWindow () {
 }
 app.on('ready', function(){
     appIcon = new Tray('Frontend/images/feelsgoodman.png');
-    var contextMenu = Menu.buildFromTemplate([
-        { label: 'Item1', type: 'radio' },
-        { label: 'Item2', type: 'radio' },
-        { label: 'Item3', type: 'radio', checked: true },
-        { label: 'Item4', type: 'radio' }
-    ]);
-    appIcon.setToolTip('Feels chat man.');
-    appIcon.setContextMenu(contextMenu);
+    appIcon.setToolTip('Feels chat man');
 });
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

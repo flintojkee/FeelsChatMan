@@ -2,6 +2,9 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 
+
+const swal = require('sweetalert');
+
 const rq = require('electron-require');
 const CONST = require('./more_js/constants.js');
 var socket = require('socket.io-client');
@@ -15,11 +18,9 @@ var twitch = require('twitch-emoji');
 
 
 
-// http.js
-
-
 $(document).ready(() => {
     console.log("document ready(http)");
+
     $('#login-btn').click(() => {
         console.log("login event triggered");
         $.post(CONST.URI + "/login", $('.login-form').serialize())
@@ -27,10 +28,10 @@ $(document).ready(() => {
                 console.log("done login request");
                 // console.log(data);
                 if (data.success) {
-                    alert(data.msg);
-                    socket = socket(CONST.URI);
+                    swal("Good job!",data.msg, "success");
+                    socket = socket(CONST.URI, { query: "username=" + data.user.username});
                     socket.username = data.user.username;
-                    logged(socket.username);
+                    logged(socket.username, data.user.colour);
                     initSocket();
                 } else {
                     alert(data.msg);
@@ -64,10 +65,16 @@ $(document).ready(() => {
 
     $('#addChannelBtn').click(() => {
         console.log("create channel triggered")
-            //console.log($('#createChannel-form').serialize());
+        //console.log($('#createChannel-form').serialize());
+        if ($.trim($('#channelName')) === '') {
+            alert("Empty channel name is not allowed");
+            return false;
+        }
         $.post(CONST.URI + "/createChannel", $('#createChannel-form').serialize() + "&c_admin=" + socket.username)
             .done(data => {
-                console.log(data)
+                console.log("NEW CHANNEL " + data);
+                newChannel(data.channel)
+                module.exports.newChannel(data.channel);
             })
             .fail(err => {
                 console.log("channel creation failed " + err)
@@ -87,13 +94,14 @@ $(document).ready(() => {
         }
 
         socket.on('new message', (message) => {
-            if ($(".channelTitle").text() === message.channel) {
-                newMessage(message);
-            }
+            newMessage(message);
         })
 
-        
+        var newChannel = function(data) {
+            socket.emit('new channel', data);
+        }
 
         module.exports.sendMessage = sendMessage;
+        module.exports.newChannel = newChannel;
     }
 })
