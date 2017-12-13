@@ -40,19 +40,19 @@
             <select class="form-control" id="colourpicker" >
                 <option style="background: blue;" value="Blue">Blue</option>
                 <option style="background: coral;" value="Coral">Coral</option>
-                <option style="background: dodgerblue;" value="Dodgerblue">Dodgerblue</option>
-                <option style="background: springgreen;" value="Springgreen">Springgreen</option>
-                <option style="background: yellowgreen;" value="Yellowgreen">Yellowgreen</option>
+                <option style="background: dodgerblue;" value="DodgerBlue">DodgerBlue</option>
+                <option style="background: springgreen;" value="SpringGreen">SpringGreen</option>
+                <option style="background: yellowgreen;" value="YellowGreen">YellowGreen</option>
                 <option style="background: green;" value="Green">Green</option>
-                <option style="background: orangered;" value="Orangered">Orangered</option>
+                <option style="background: orangered;" value="OrangeRed">OrangeRed</option>
                 <option style="background: red;" value="Red">Red</option>
-                <option style="background: goldenrod;" value="Goldenrod">Goldenrod</option>
-                <option style="background: hotpink;" value="Hotpink">Hotpink</option>
-                <option style="background: cadetblue;" value="Cadetblu">Cadetblu</option>
-                <option style="background: seagreen;" value="Seagreen">Seagreen</option>
+                <option style="background: goldenrod;" value="GoldenRod">GoldenRod</option>
+                <option style="background: hotpink;" value="HotPink">HotPink</option>
+                <option style="background: cadetblue;" value="CadetBlue">CadetBlue</option>
+                <option style="background: seagreen;" value="SeaGreen">SeaGreen</option>
                 <option style="background: chocolate;" value="Chocolate">Chocolate</option>
-                <option style="background: blueviolet;" value="Blueviolet">Blueviolet</option>
-                <option style="background: firebrick;" value="Firebrick">Firebrick</option>
+                <option style="background: blueviolet;" value="BlueViolet">BlueViolet</option>
+                <option style="background: firebrick;" value="FireBrick">Firebrick</option>
             </select>
             <input id="r_colour" type="hidden" name="r_colour" value="Red"/>
             <button id="register-btn" type="button">create</button>
@@ -155,12 +155,24 @@
                         </button>
                     </div>
                 </div>
-                <div class="col-xs-6">
+                <div    class="col-xs-6">
                     <div class="modal-header">
                         <h4 class="modal-title">Join existing channel</h4>
                     </div>
                     <div class="modal-body">
-                        <p>Some text in the modal.</p>
+                        <form id=" joinChannel-form">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+                            <input id="JoinChannelName" type="text" class="form-control" name="j_name"
+                                   placeholder="Name" maxlength="15">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input id="JoinChannelPassword" type="password" class="form-control" name="j_password"
+                                   placeholder="Password" maxlength="10">
+                        </div>
+                        <br>
+                        </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-success"  id="joinChannelBtn">Join

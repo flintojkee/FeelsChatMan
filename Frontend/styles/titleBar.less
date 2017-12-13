@@ -1,0 +1,49 @@
+@font-face {
+  font-family: 'CHLORINR';
+  src: url('../fonts/CHLORINR.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.titlebar {
+  -webkit-app-region: drag;
+  .navbar {
+    margin: 0;
+    height: 40px;
+    min-height: 40px;
+    border: none;
+    border-radius: 0;
+    .navbar-title {
+      color: @textColor;
+      font-family: "CHLORINR";
+      height: 15px;
+      width: 140px;
+      float: left;
+      font-size: 18px;
+      padding: 8px 0 0 5px;
+    }
+    img {
+      height: 40px;
+      width: 40px;
+      -webkit-app-region: no-drag;
+    }
+    .feelsChatMan {
+      -webkit-app-region: no-drag;
+      position: absolute;
+      height: 60px;
+      width: 60px;
+      bottom: -39px;
+      left: 157px;
+      z-index: 999;
+      display: none;
+    }
+    .feelsGoodMan:hover + .feelsChatMan {
+      display: block;
+    }
+  }
+  .navbar-btn {
+    -webkit-app-region: no-drag;
+    float: right;
+    margin-right: 5px;
+    height: 15px;
+  }
+}

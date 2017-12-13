@@ -1,0 +1,94 @@
+.mainPanel {
+  float: left;
+  width: calc(~"100% - 500px");
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: @baseColor;
+  .channelTitle{
+    height: @channelTitleHeight;
+    background-color: @darken1;
+    color: @lighten4;
+    font-size: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+  }
+  .channelMessages {
+    height: auto;
+    margin: 20px 20px 0 20px;
+    max-height: calc(~"100% - 200px");
+    overflow-y: auto;
+    overflow-x: hidden;
+    .chatLineMassage {
+      float: left;
+      width: 100%;
+      max-width: 100%;
+      font-size: 1.7rem;
+      color: @textColor;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      .time {
+        float: left;
+        width: 30px;
+      }
+      .username {
+        text-align: right;
+        float: left;
+        width: 100px;
+      }
+      .messageText {
+        overflow: hidden;
+        padding-left: 4px;
+        word-wrap: break-word;
+      }
+
+    }
+  }
+  .chatLineMassage:nth-child(odd) {
+    background: @lighten2; /* Цвет фона */
+  }
+  .chatLineMassage:nth-child(even) {
+    background: @baseColor; /* Цвет фона */
+  }
+  form {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 99;
+    .channelInputArea {
+      margin: 0 0 50px;
+      .innerInputArea {
+        background-color: @lighten1;
+        margin-left: 20px;
+        margin-right: 20px;
+        border-radius: 5px;
+        height: auto;
+        .sendFile {
+          position: absolute;
+          img {
+            z-index: 100;
+          }
+        }
+        .textArea {
+          background-color: transparent;
+          border: none;
+          font-size: 1.7rem;
+          font-weight: 400;
+          margin: 2px 2px 2px 0;
+          padding: 10px 38px 10px 50px;
+          max-height: 144px;
+          min-height: 20px;
+          outline: none;
+          resize: none;
+          width: 100%;
+          color: @textColor;
+        }
+        .textArea::placeholder {
+          color: @textColor;
+          opacity: 0.4;
+        }
+      }
+    }
+  }
+}

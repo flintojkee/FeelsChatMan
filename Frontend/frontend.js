@@ -32,18 +32,10 @@ function newChannel(newchannel) {
     if ($.trim(newchannel.name) === '') {
         return false;
     }
-    var $new = $('<div class="channel"><div class="wrap"><img src="iha.png" alt=""/><div class="meta"><div class="name">' + newchannel.name + '</div><div class="preview">' + newchannel.description + '</div></div></div></div>');
+    var $new = $('<div class="channel"><div class="wrap"><div class="img">' + newchannel.name.charAt(0) + '</div><div class="meta"><div class="name">' + newchannel.name + '</div><div class="preview">' + newchannel.desc + '</div></div></div></div>');
     $('.channels').append($new);
 };
 
-$('#addChannelBtn').click(function() {
-    var newchannel = {
-        name: $("#channelName").val(),
-        password: $("#channelPassword").val(),
-        description: $("#channelDescription").val()
-    };
-    newChannel(newchannel);
-});
 
 $(window).on('keydown', function(e) {
     var d = new Date(); // for now
@@ -76,11 +68,12 @@ $('.message a').click(function() {
         opacity: "toggle"
     }, "slow");
 });
-
+$('#colourpicker').change(() => {
+    $('#r_colour').val($('#colourpicker').val());
+})
 var logged = function(username, colour) {
     $('.login-page').addClass("hidden");
     $('.frame').find("#username").text(username);
-    var colour = "Firerick";
     $('.frame').find("#usernameColour").text(colour);
     $(".username").addClass(colour);
     $('.frame').removeClass("hidden");
@@ -116,6 +109,7 @@ function removeUserFromChannelList(username) {
         if(username===this.text())$(".channelMembers").remove(this);
     });
 }
+const path = require('path');
 function mention(message,username) {
     console.log(username);
     var mention =  "@"+username;

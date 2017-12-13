@@ -1,0 +1,134 @@
+.leftPanel {
+  float: left;
+  width: @leftPanelWidth;
+  height: calc(~"100% - 40px");
+  background: @darken2;
+  color: #f5f5f5;
+  overflow: hidden;
+  position: relative;
+  .profile {
+    width: 100%;
+    margin: 0 auto;
+    background: @darken2;
+    .wrap {
+      height: 60px;
+      line-height: 60px;
+      width: 88%;
+      position: relative;
+      margin: 0 auto;
+      img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        padding: 3px;
+        float: left;
+      }
+    }
+  }
+  .search {
+    font-weight: 300;
+    label {
+      position: absolute;
+      margin: 10px 0 0 20px;
+    }
+    input {
+      font-family: "proxima-nova", "Source Sans Pro", sans-serif;
+      padding: 10px 0 10px 46px;
+      width: 100%;
+      border: none;
+      background: @darken2;
+      opacity: 0.5;
+      color: #f5f5f5;
+    }
+  }
+  .scrollbar{
+    background-color: @darken2;
+  }
+  .scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: @lighten1;
+    opacity: 0.2;
+  }
+  .scrollbar::-webkit-scrollbar {
+    width: 3px;
+    background-color: rgba(245, 245, 245, 0);
+  }
+  .channels {
+    height: calc(~"100% - 100px");
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-right: 0;
+    #active {
+      background: @baseColor;
+      border-right: 3px solid @lighten3;
+    }
+    .channel {
+      position: relative;
+      padding: 10px 0 10px 0;
+      font-size: 0.9em;
+      cursor: pointer;
+      .wrap {
+        width: 100%;
+        height: 50px;
+        margin-bottom: 10px;
+        margin-left: 5px;
+        position: relative;
+        .meta{
+          color: @lighten4;
+          font-size: 1.5rem;
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        .img{
+          width: 60px;
+          height: 60px;
+          font-size: 40px;
+          background-color: @baseColor;
+          border-radius: 50%;
+          text-align: center;
+          float: left;
+        }
+        img {
+          width: 55px;
+          height: 55px;
+          border-radius: 50%;
+          padding: 3px;
+          float: left;
+        }
+      }
+    }
+    .channel:hover {
+      background: @baseColor;
+    }
+    .addChannel{
+      position: relative;
+      padding: 10px 0 10px 0;
+      font-size: 0.9em;
+      cursor: pointer;
+      .wrap {
+        width: 100%;
+        height: 50px;
+        margin-bottom: 10px;
+        margin-left: 5px;
+        position: relative;
+        .meta{
+          color: @lighten4;
+          font-size: 1.5rem;
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          .name{
+            padding-top: 17px;
+          }
+        }
+        img {
+          width: 55px;
+          height: 55px;
+          border-radius: 50%;
+          padding: 3px;
+          float: left;
+        }
+      }
+    }
+    .addChannel:hover {
+      background: @baseColor;
+    }
+  }
+}

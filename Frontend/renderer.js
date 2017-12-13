@@ -3,7 +3,7 @@
 // All of the Node.js APIs are available in this process.
 
 
-const swal = require('sweetalert');
+var alerts = require('./more_js/alerts.js');
 
 const rq = require('electron-require');
 const CONST = require('./more_js/constants.js');
@@ -28,7 +28,7 @@ $(document).ready(() => {
                 console.log("done login request");
                 // console.log(data);
                 if (data.success) {
-                    swal("Good job!",data.msg, "success");
+                    alerts.succ("Success",data.msg);
                     socket = socket(CONST.URI, { query: "username=" + data.user.username});
                     socket.username = data.user.username;
                     logged(socket.username, data.user.colour);
@@ -64,6 +64,7 @@ $(document).ready(() => {
     })
 
     $('#addChannelBtn').click(() => {
+
         console.log("create channel triggered")
         //console.log($('#createChannel-form').serialize());
         if ($.trim($('#channelName')) === '') {
@@ -72,11 +73,16 @@ $(document).ready(() => {
         }
         $.post(CONST.URI + "/createChannel", $('#createChannel-form').serialize() + "&c_admin=" + socket.username)
             .done(data => {
-                console.log("NEW CHANNEL " + data);
-                newChannel(data.channel)
-                module.exports.newChannel(data.channel);
+                if (data.success) {
+                    console.log("NEW CHANNEL " + JSON.stringify(data));
+                    newChannel(data.channel)
+                    module.exports.newChannel(data.channel);
+                } else {
+                    alert(data.msg);
+                }
             })
             .fail(err => {
+                alert(err.msg);
                 console.log("channel creation failed " + err)
             })
     })
@@ -104,4 +110,14 @@ $(document).ready(() => {
         module.exports.sendMessage = sendMessage;
         module.exports.newChannel = newChannel;
     }
+})
+$('#joinChannelBtn').click(() => {
+    console.log("join channel triggered");
+    $.post(CONST.URI + "/subForChannel", $('#joinChannel-form').serialize() + "&j_username" + socket.username)
+        .done(data => {
+
+        })
+        .fail(err => {
+            console.log("channel join failed " + err)
+        })
 })
