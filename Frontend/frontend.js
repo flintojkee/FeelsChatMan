@@ -130,5 +130,7 @@ function getUser() {
     };
     return User;
 }
+function appendMessage(message) {
 
+}
 
