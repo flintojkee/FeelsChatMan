@@ -28,13 +28,17 @@ $(document).ready(() => {
                 console.log("done login request");
                 // console.log(data);
                 if (data.success) {
-                    alerts.succ("Success",data.msg);
-                    socket = socket(CONST.URI, { query: "username=" + data.user.username});
+                    alerts.succ("Success", data.msg);
+                    socket = socket(CONST.URI, {
+                        query: "username=" + data.user.username
+                    });
                     socket.username = data.user.username;
-                    logged(socket.username, data.user.colour);
+                    socket.colour = data.user.colour;
+                    socket.channels = data.user.channels;
+                    logged(data.user.username, data.user.colour, data.user.channels);
                     initSocket();
                 } else {
-                    alerts.err("Fail",data.msg);
+                    alerts.err("Fail", data.msg);
                 }
                 return false;
             })
@@ -51,9 +55,9 @@ $(document).ready(() => {
                 console.log("done register request")
                 if (data.success) {
                     //TODO some UI action(?)
-                    alerts.succ("Success",data.msg);
+                    alerts.succ("Success", data.msg);
                 } else {
-                    alerts.err("Fail",data.msg);
+                    alerts.err("Fail", data.msg);
                 }
                 return false;
             })
@@ -76,9 +80,9 @@ $(document).ready(() => {
                 if (data.success) {
                     console.log("NEW CHANNEL " + JSON.stringify(data));
                     newChannel(data.channel)
-                    module.exports.newChannel(data.channel);
+                    module.exports.newChannelAdded(data.channel);
                 } else {
-                    alerts.err("Fail",data.msg);
+                    alerts.err("Fail", data.msg);
                 }
             })
             .fail(err => {
@@ -87,12 +91,31 @@ $(document).ready(() => {
             })
     })
 
+    $('#joinChannelBtn').click(() => {
+        console.log("join channel triggered");
+        $.post(CONST.URI + "/subForChannel", $('#joinChannel-form').serialize() + "&j_username=" + socket.username)
+            .done(data => {
+                if (!data.success) {
+                    alerts.err("Fail", data.msg);
+                } else {
+                    alerts.succ("Success", data.msg)
+                    newChannel(data.channel);
+                }
+            })
+            .fail(err => {
+                console.log("channel join failed " + err)
+            })
+    })
 
     // socket.js
 
 
     function initSocket() {
-        socket.emit('logged', socket.username);
+        socket.emit('logged', {
+            username: socket.username,
+            colour: socket.colour,
+            channels: socket.channels
+        });
 
         var sendMessage = function(message) {
             console.log(message)
@@ -103,21 +126,74 @@ $(document).ready(() => {
             newMessage(message);
         })
 
-        var newChannel = function(data) {
+        var newChannelAdded = function(data) {
             socket.emit('new channel', data);
         }
 
-        module.exports.sendMessage = sendMessage;
-        module.exports.newChannel = newChannel;
-    }
-})
-$('#joinChannelBtn').click(() => {
-    console.log("join channel triggered");
-    $.post(CONST.URI + "/subForChannel", $('#joinChannel-form').serialize() + "&j_username" + socket.username)
-        .done(data => {
+        var getCacheForChannel = function(channel) {
+            socket.emit('request cache', channel);
+        };
 
+        socket.on('request cache', (cache) => {
+            console.log("got requested cached messages")
+            cache.messages.forEach((message) => {
+                addMessage(message);
+            })
+            for (const prop in cache.online_users) {
+                addUserToChannelList({
+                    username: prop,
+                    colour: cache.online_users[prop],
+                    channel: cache.channel_name
+                })
+            }
         })
-        .fail(err => {
-            console.log("channel join failed " + err)
+
+        var getMsgForChannel = function(channel, numOfMsg, numToSkip) {
+            socket.emit('request more msgs', {
+                channel: channel,
+                numOfMsg: numOfMsg,
+                numToSkip: numToSkip
+            });
+        };
+
+        socket.on('request more msgs', (messages) => {
+            console.log("got requested messages")
+            // call append function forEach
         })
+
+
+        var addUserToChannel = function(channel, username, colour) {
+            socket.emit("user joined channel", {
+                channel: channel,
+                user: {
+                    username: username,
+                    colour: colour
+                }
+            })
+        }
+
+        socket.on('user logged', (user) => {
+            if (user.channels.indexOf($('.channelTitle').text()) !== -1) {
+                addUserToChannelList({
+                    username: user.username,
+                    colour: user.colour,
+                    channel: user.channels.indexOf($('.channelTitle').text()),
+                })
+            }
+        })
+
+        socket.on('user disconnected', (user) => {
+            if (user.channels.indexOf($('.channelTitle').text()) !== -1) {
+                removeUserFromChannelList({
+                    username: user.username,
+                    channel: $('.channelTitle').text(),
+                })
+            }
+        })
+
+        module.exports.sendMessage = sendMessage;
+        module.exports.newChannelAdded = newChannelAdded;
+        module.exports.getCacheForChannel = getCacheForChannel;
+        module.exports.getMsgForChannel = getMsgForChannel;
+    }
 })

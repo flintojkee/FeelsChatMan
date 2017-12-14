@@ -52,7 +52,7 @@
                 <option style="background: seagreen;" value="SeaGreen">SeaGreen</option>
                 <option style="background: chocolate;" value="Chocolate">Chocolate</option>
                 <option style="background: blueviolet;" value="BlueViolet">BlueViolet</option>
-                <option style="background: firebrick;" value="FireBrick">Firebrick</option>
+                <option style="background: firebrick;" value="FireBrick">FireBrick</option>
             </select>
             <input id="r_colour" type="hidden" name="r_colour" value="Red"/>
             <button id="register-btn" type="button">create</button>
@@ -70,13 +70,9 @@
     <div class="leftPanel">
         <div class="profile">
             <div class="wrap">
-                <img id="profile-img" src="images/iha.png" class="online" alt=""/>
+                <img id="profile-img" src="images/iha.png" class="online" alt="" data-toggle="modal" data-target="#profileSetup"/>
                 <div class="username" id="username"></div>
                 <div class="hidden" id="usernameColour"></div>
-            </div>
-            <div class="search">
-                <label><i class="fa fa-search"></i></label>
-                <input type="text" placeholder="Search channels..."/>
             </div>
         </div>
         <div class="channels scrollbar">
@@ -100,6 +96,7 @@
     </div>
     <div class="mainPanel">
         <div class="channelTitle">General</div>
+        <button type="button" class="btn btn-default" id="showMoreMessages">showMoreMessages</button>
         <div class="channelMessages scrollbar">
         </div>
         <form>
@@ -176,6 +173,45 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-success"  id="joinChannelBtn">Join
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="profileSetup" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="container-fluid">
+                <div class="col-xs-12">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Choose Color</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label for="colourpicker">Select colour of nickname</label>
+                        <select class="form-control" id="changeColourPicker" >
+                            <option style="background: blue;" value="Blue">Blue</option>
+                            <option style="background: coral;" value="Coral">Coral</option>
+                            <option style="background: dodgerblue;" value="DodgerBlue">DodgerBlue</option>
+                            <option style="background: springgreen;" value="SpringGreen">SpringGreen</option>
+                            <option style="background: yellowgreen;" value="YellowGreen">YellowGreen</option>
+                            <option style="background: green;" value="Green">Green</option>
+                            <option style="background: orangered;" value="OrangeRed">OrangeRed</option>
+                            <option style="background: red;" value="Red">Red</option>
+                            <option style="background: goldenrod;" value="GoldenRod">GoldenRod</option>
+                            <option style="background: hotpink;" value="HotPink">HotPink</option>
+                            <option style="background: cadetblue;" value="CadetBlue">CadetBlue</option>
+                            <option style="background: seagreen;" value="SeaGreen">SeaGreen</option>
+                            <option style="background: chocolate;" value="Chocolate">Chocolate</option>
+                            <option style="background: blueviolet;" value="BlueViolet">BlueViolet</option>
+                            <option style="background: firebrick;" value="FireBrick">FireBrick</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success"  id="changeColorBtn" data-dismiss="modal">Change
                         </button>
                     </div>
                 </div>

@@ -21,7 +21,11 @@ function createWindow () {
       minWidth: 600,
       minHeight: 456,
       show: false,
-      backgroundColor: '#3e3e3e'
+      backgroundColor: '#3e3e3e',
+      icon: __dirname + './Frontend/images/feelsgoodman.png'
+     // webPreferences: {
+     //     devTools: false
+   //   }
   });
     splash = new BrowserWindow({
         width: 800,
@@ -32,7 +36,8 @@ function createWindow () {
         maxHeight: 600,
         transparent: true,
         frame: false,
-        alwaysOnTop: true
+        alwaysOnTop: true,
+        icon: __dirname + './Frontend/images/feelsgoodman.png'
     });
 
     splash.loadURL(url.format({
@@ -52,9 +57,8 @@ function createWindow () {
         setTimeout(function(){splash.destroy(); mainWindow.show();},3000);
     });
 
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
 
+  // Close the DevTools.
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
     // Dereference the window object, usually you would store windows

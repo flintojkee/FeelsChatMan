@@ -3,22 +3,38 @@ const swal = require('sweetalert');
 var renderer = require('./renderer.js');
 function newMessage(newMessage) {
     var username = getUser().name;
-    mention(newMessage.msg,username);
+    newMessage.mention = false;
+    mention(newMessage,username);
 
+    console.log(newMessage.mention);
     if ($(".channelTitle").text() !== newMessage.channel) {
         return false;
     }
     if ($.trim(newMessage.msg) === '') {
         return false;
     }
-    var $new = $('<div class="chatLineMassage"><div class="time">' + newMessage.date + '</div><div class="username">' + newMessage.username + ':</div><div class="messageText">' + (twitchEmoji.parse(newMessage.msg) + '</div></div>'));
-    $new.find(".username").addClass(newMessage.colour);
-    $('.channelMessages').append($new);
+    addMessage(newMessage);
     $('#messageArea').val('');
     var $cont = $('.channelMessages');
     $cont[0].scrollTop = $cont[0].scrollHeight;
-
 };
+
+function addMessage(message) {
+    gachiBass(message);
+    var $new = $('<div class="chatLineMassage"><div class="time">' + message.date + '</div><div class="username">' + message.username + ':</div><div class="messageText">' + (twitchEmoji.parse(message.msg) + '</div></div>'));
+    $new.find(".username").addClass(message.colour);
+    if(message.mention){
+        $new.find(".messageText").addClass("mention");
+    }
+    $('.channelMessages').append($new);
+}
+
+function appendMessage(message) {
+    var $new = $('<div class="chatLineMassage"><div class="time">' + message.date + '</div><div class="username">' + message.username + ':</div><div class="messageText">' + (twitchEmoji.parse(message.msg) + '</div></div>'));
+    $new.find(".username").addClass(message.colour);
+    $('.channelMessages').prepend($new);
+}
+
 
 $(document).on('click', '.channel', function() {
     $('.channel').removeAttr('id');
@@ -26,6 +42,7 @@ $(document).on('click', '.channel', function() {
     $(this).attr('id', 'active');
     var title = jQuery(this).find('.name').text();
     $('.channelTitle').text(title);
+    renderer.getCacheForChannel(title)
 });
 
 function newChannel(newchannel) {
@@ -68,15 +85,25 @@ $('.message a').click(function() {
         opacity: "toggle"
     }, "slow");
 });
+
 $('#colourpicker').change(() => {
     $('#r_colour').val($('#colourpicker').val());
-})
-var logged = function(username, colour) {
+});
+
+// Added new param
+var logged = function(username, colour, channels) {
+    console.log("logged func" +username + colour + channels)
     $('.login-page').addClass("hidden");
     $('.frame').find("#username").text(username);
     $('.frame').find("#usernameColour").text(colour);
     $(".username").addClass(colour);
     $('.frame').removeClass("hidden");
+
+    // Add all the joined channels
+    channels.forEach(channel => {
+        console.log("+ch")
+        newChannel(channel);
+    })
 };
 
 const remote = require('electron').remote;
@@ -100,29 +127,46 @@ $("#close").click(() => {
     window.close();
 })
 
-function addUserToChannelList(username) {
-    var $member = $(' <div class="member">' + username + '</div>');
+$("#changeColorBtn").click(() => {
+    var newColour = $("#changeColourPicker").val();
+    var prevColour = $("#usernameColour").text();
+    $('.frame').find("#usernameColour").text(newColour);
+    $(".username").removeClass(prevColour);
+    $(".username").addClass(newColour);
+});
+
+function addUserToChannelList(user) {
+    if ($(".channelTitle").text() !== user.channel) {
+        return false;
+    }
+    var $member = $('<div class="member">' + user.username + '</div>');
+    $member.find(".member").addClass(user.colour);
     $member.appendTo('.channelMembers').show('slow');
 }
-function removeUserFromChannelList(username) {
-    $(".channelMembers").each(function (username) {
-        if(username===this.text())$(".channelMembers").remove(this);
+function removeUserFromChannelList(user) {
+    if ($(".channelTitle").text() !== user.channel) {
+        return false;
+    }
+    $(".channelMembers").each(function (user) {
+        if(user.username===this.text())$(".channelMembers").remove(this);
     });
 }
+
 const path = require('path');
 function mention(message,username) {
-    console.log(username);
     var mention =  "@"+username;
-    if(message.includes(mention)){
-        console.log("mention");
+
+    if(message.msg.includes(mention)){
+        message.mention = true;
         const notification = {
             title: 'Mention',
-            body: message,
+            body: message.msg,
             icon: path.join(__dirname, 'images/feelsgoodman.png')
         }
         const myNotification = new window.Notification(notification.title, notification);
     };
 }
+
 function getUser() {
     var User = {
         name:$('.frame').find("#username").text(),
@@ -130,7 +174,21 @@ function getUser() {
     };
     return User;
 }
-function appendMessage(message) {
 
+function gachiBass(message) {
+    var gachiBass = "gachiBass";
+    var str = message.msg;
+    var replace = '<img src=\"images/gachiBass.gif\">';
+    console.log(message.msg);
+    if(str.includes(gachiBass)){
+        console.log(str);
+        message.msg = replaceAll(str,gachiBass,replace);
+        console.log(message.msg);
+    };
 }
-
+function replaceAll(str, term, replacement) {
+    return str.replace(new RegExp(escapeRegExp(term), 'g'), replacement);
+}
+function escapeRegExp(string){
+    return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
