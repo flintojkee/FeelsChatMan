@@ -17,7 +17,6 @@ var twitch = require('twitch-emoji');
 //     })
 
 
-
 $(document).ready(() => {
     console.log("document ready(http)");
 
@@ -110,13 +109,6 @@ $(document).ready(() => {
 
     // utils
 
-    var findPurpose = function(purposeName) {
-        for (var i = 0, len = purposeObjects.length; i < len; i++) {
-            if (purposeObjects[i].purpose === purposeName)
-                return purposeObjects[i]; // Return as soon as the object is found
-        }
-        return null; // The object was not found
-    }
 
 
     // socket.js

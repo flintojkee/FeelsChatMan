@@ -23,9 +23,9 @@ function createWindow () {
       show: false,
       backgroundColor: '#3e3e3e',
       icon: __dirname + './Frontend/images/feelsgoodman.png'
-     // webPreferences: {
-     //     devTools: false
-   //   }
+      webPreferences: {
+          devTools: false
+     }
   });
     splash = new BrowserWindow({
         width: 800,
