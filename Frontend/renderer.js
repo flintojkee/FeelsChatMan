@@ -152,6 +152,7 @@ $(document).ready(() => {
         })
 
         var getMsgForChannel = function(channel, numOfMsg, numToSkip) {
+            console.log("MORE MSG REQ")
             socket.emit('request more msgs', {
                 channel: channel,
                 numOfMsg: numOfMsg,
@@ -162,6 +163,13 @@ $(document).ready(() => {
         socket.on('request more msgs', (messages) => {
             console.log("got requested messages")
             // call append function forEach
+            messages.forEach((message) => {
+                appendMessage(message);
+            })
+        })
+
+        socket.on('test', () => {
+            console.log("TEST");
         })
 
         var addUserToChannel = function(channel) {
@@ -186,11 +194,13 @@ $(document).ready(() => {
 
         socket.on('user logged', (user) => {
             console.log("user logged " + user.username + " " + user.colour)
-            addUserToChannelList({
-                username: user.username,
-                colour: user.colour,
-                channel: user.channels.indexOf($('.channelTitle').text()),
-            })
+            if (user.channels.indexOf($('.channelTitle').text() !== -1)) {
+                addUserToChannelList({
+                    username: user.username,
+                    colour: user.colour,
+                    channel: $('.channelTitle').text(),
+                })
+            }
         })
 
         socket.on('user disconnected', (user) => {

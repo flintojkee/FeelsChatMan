@@ -181,7 +181,7 @@ function getUser() {
 }
 
 function gachiBass(message) {
-    var gachiBass = "gachiBass";
+    var gachiBass = "gachiBASS";
     var str = message.msg;
     var replace = '<img src=\"images/gachiBass.gif\">';
     console.log(message.msg);
@@ -197,3 +197,8 @@ function replaceAll(str, term, replacement) {
 function escapeRegExp(string){
     return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
+
+$("#showMoreMessages").click(() => {
+    console.log("TOTAL MSGS " + $('.channelMessages').children().length)
+    renderer.getMsgForChannel($(".channelTitle").text(), 20, $('.channelMessages').children().length)
+});
