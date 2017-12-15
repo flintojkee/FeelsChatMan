@@ -50,7 +50,6 @@ $(document).on('click', '.channel', function() {
     var title = jQuery(this).find('.name').text();
     $('.channelTitle').text(title);
     renderer.getCacheForChannel(title);
-    $('#messageArea').val('');
 });
 
 function newChannel(newchannel) {
@@ -78,7 +77,7 @@ $(window).on('keydown', function(e) {
             return false;
         }
         newMessage(newmsg);
-
+        $('#messageArea').val('');
         // Send to server
         renderer.sendMessage(newmsg);
         //
