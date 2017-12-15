@@ -28,7 +28,7 @@ function addMessage(message) {
         $new.find(".messageText").addClass("mention");
     }
     $('.channelMessages').append($new);
-    $('#messageArea').val('');
+
     var $cont = $('.channelMessages');
     $cont[0].scrollTop = $cont[0].scrollHeight;
 }
@@ -49,7 +49,8 @@ $(document).on('click', '.channel', function() {
     $(this).attr('id', 'active');
     var title = jQuery(this).find('.name').text();
     $('.channelTitle').text(title);
-    renderer.getCacheForChannel(title)
+    renderer.getCacheForChannel(title);
+    $('#messageArea').val('');
 });
 
 function newChannel(newchannel) {
