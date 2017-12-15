@@ -68,7 +68,6 @@ $(document).ready(() => {
     })
 
     $('#addChannelBtn').click(() => {
-
         console.log("create channel triggered")
         //console.log($('#createChannel-form').serialize());
         if ($.trim($('#channelName')) === '') {
@@ -81,6 +80,7 @@ $(document).ready(() => {
                     console.log("NEW CHANNEL " + JSON.stringify(data));
                     newChannel(data.channel)
                     module.exports.newChannelAdded(data.channel);
+                    module.exports.addUserToChannel(data.channel);
                 } else {
                     alerts.err("Fail", data.msg);
                 }
@@ -100,6 +100,7 @@ $(document).ready(() => {
                 } else {
                     alerts.succ("Success", data.msg)
                     newChannel(data.channel);
+                    module.exports.addUserToChannel(data.channel);
                 }
             })
             .fail(err => {
@@ -123,6 +124,7 @@ $(document).ready(() => {
         }
 
         socket.on('new message', (message) => {
+            console.log(message);
             newMessage(message);
         })
 
@@ -140,6 +142,7 @@ $(document).ready(() => {
                 addMessage(message);
             })
             for (const prop in cache.online_users) {
+                console.log("CACHED COLOUR " + cache.online_users[prop])
                 addUserToChannelList({
                     username: prop,
                     colour: cache.online_users[prop],
@@ -161,39 +164,46 @@ $(document).ready(() => {
             // call append function forEach
         })
 
-
-        var addUserToChannel = function(channel, username, colour) {
+        var addUserToChannel = function(channel) {
+            socket.channels.push(channel);
             socket.emit("user joined channel", {
                 channel: channel,
                 user: {
-                    username: username,
-                    colour: colour
+                    username: socket.username,
+                    colour: socket.colour
                 }
             })
         }
 
+        socket.on('user joined channel', (data) => {
+            console.log("USER JOINED " + data)
+            addUserToChannelList({
+                username: data.user.username,
+                colour: data.user.colour,
+                channel: data.channel.name,
+            })
+        })
+
         socket.on('user logged', (user) => {
-            if (user.channels.indexOf($('.channelTitle').text()) !== -1) {
-                addUserToChannelList({
-                    username: user.username,
-                    colour: user.colour,
-                    channel: user.channels.indexOf($('.channelTitle').text()),
-                })
-            }
+            console.log("user logged " + user.username + " " + user.colour)
+            addUserToChannelList({
+                username: user.username,
+                colour: user.colour,
+                channel: user.channels.indexOf($('.channelTitle').text()),
+            })
         })
 
         socket.on('user disconnected', (user) => {
-            if (user.channels.indexOf($('.channelTitle').text()) !== -1) {
-                removeUserFromChannelList({
-                    username: user.username,
-                    channel: $('.channelTitle').text(),
-                })
-            }
+            removeUserFromChannelList({
+                username: user.username,
+                channel: $('.channelTitle').text(),
+            })
         })
 
         module.exports.sendMessage = sendMessage;
         module.exports.newChannelAdded = newChannelAdded;
         module.exports.getCacheForChannel = getCacheForChannel;
         module.exports.getMsgForChannel = getMsgForChannel;
+        module.exports.addUserToChannel = addUserToChannel;
     }
 })

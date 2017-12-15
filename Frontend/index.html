@@ -84,18 +84,10 @@
                     </div>
                 </div>
             </div>
-            <div class="channel" id="active">
-                <div class="wrap"><img src="images/logo.png" alt=""/>
-                    <div class="meta">
-                        <div class="name">General</div>
-                        <div class="preview">Welcome to feels chat man</div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
-    <div class="mainPanel">
-        <div class="channelTitle">General</div>
+    <div class="mainPanel hidden">
+        <div class="channelTitle"></div>
         <button type="button" class="btn btn-default" id="showMoreMessages">showMoreMessages</button>
         <div class="channelMessages scrollbar">
         </div>
@@ -104,16 +96,15 @@
                 <div class="innerInputArea">
                     <div class="sendFile">
                     </div>
-                    <textarea rows="1" placeholder="Повідомлення #general" class="textArea scrollbar" id="messageArea"
+                    <textarea rows="1" placeholder="Повідомлення" class="textArea scrollbar" id="messageArea"
                               style="height: auto; "></textarea>
                 </div>
             </div>
         </form>
     </div>
-    <div class="rightPanel ">
+    <div class="rightPanel hidden">
         <div class="channelMembersTitle"><h3>Online members</h3></div>
         <div class="channelMembers scrollbar">
-            <div class="member">User</div>
         </div>
     </div>
 </div>
@@ -157,22 +148,22 @@
                         <h4 class="modal-title">Join existing channel</h4>
                     </div>
                     <div class="modal-body">
-                        <form id=" joinChannel-form">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
-                            <input id="JoinChannelName" type="text" class="form-control" name="j_name"
-                                   placeholder="Name" maxlength="15">
-                        </div>
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input id="JoinChannelPassword" type="password" class="form-control" name="j_password"
-                                   placeholder="Password" maxlength="10">
-                        </div>
-                        <br>
+                        <form id="joinChannel-form">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+                                <input id="JoinChannelName" type="text" class="form-control" name="j_name"
+                                       placeholder="Name" maxlength="15">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input id="JoinChannelPassword" type="password" class="form-control" name="j_password"
+                                       placeholder="Password" maxlength="10">
+                            </div>
+                            <br>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success"  id="joinChannelBtn">Join
+                        <button type="button" class="btn btn-success" data-dismiss="modal" id="joinChannelBtn">Join
                         </button>
                     </div>
                 </div>

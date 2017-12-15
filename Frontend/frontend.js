@@ -14,19 +14,23 @@ function newMessage(newMessage) {
         return false;
     }
     addMessage(newMessage);
-    $('#messageArea').val('');
-    var $cont = $('.channelMessages');
-    $cont[0].scrollTop = $cont[0].scrollHeight;
+
 };
 
 function addMessage(message) {
     gachiBass(message);
     var $new = $('<div class="chatLineMassage"><div class="time">' + message.date + '</div><div class="username">' + message.username + ':</div><div class="messageText">' + (twitchEmoji.parse(message.msg) + '</div></div>'));
     $new.find(".username").addClass(message.colour);
+    console.log(message.username);
+    console.log(message.colour);
+    console.log(message.mention);
     if(message.mention){
         $new.find(".messageText").addClass("mention");
     }
     $('.channelMessages').append($new);
+    $('#messageArea').val('');
+    var $cont = $('.channelMessages');
+    $cont[0].scrollTop = $cont[0].scrollHeight;
 }
 
 function appendMessage(message) {
@@ -39,6 +43,9 @@ function appendMessage(message) {
 $(document).on('click', '.channel', function() {
     $('.channel').removeAttr('id');
     $('.channelMessages').empty();
+    $(".channelMembers").empty();
+    $(".mainPanel").removeClass("hidden");
+    $(".rightPanel").removeClass("hidden");
     $(this).attr('id', 'active');
     var title = jQuery(this).find('.name').text();
     $('.channelTitle').text(title);
@@ -131,25 +138,23 @@ $("#changeColorBtn").click(() => {
     var newColour = $("#changeColourPicker").val();
     var prevColour = $("#usernameColour").text();
     $('.frame').find("#usernameColour").text(newColour);
-    $(".username").removeClass(prevColour);
-    $(".username").addClass(newColour);
+    $('.profile').find(".username").removeClass(prevColour);
+    $('.profile').find(".username").addClass(newColour);
 });
 
 function addUserToChannelList(user) {
     if ($(".channelTitle").text() !== user.channel) {
         return false;
     }
-    var $member = $('<div class="member">' + user.username + '</div>');
-    $member.find(".member").addClass(user.colour);
+    var $member = $('<div class="member '  + user.colour + '" id="' + user.username + '">' + user.username + '</div>');
     $member.appendTo('.channelMembers').show('slow');
 }
 function removeUserFromChannelList(user) {
     if ($(".channelTitle").text() !== user.channel) {
         return false;
     }
-    $(".channelMembers").each(function (user) {
-        if(user.username===this.text())$(".channelMembers").remove(this);
-    });
+    var mem = document.getElementById(user.username);
+    mem.remove();
 }
 
 const path = require('path');
