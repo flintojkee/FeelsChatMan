@@ -22,7 +22,7 @@ function createWindow () {
       minHeight: 456,
       show: false,
       backgroundColor: '#3e3e3e',
-      icon: __dirname + './Frontend/images/feelsgoodman.png'
+      icon: __dirname + './Frontend/images/feelsgoodman.png',
       webPreferences: {
           devTools: false
      }
