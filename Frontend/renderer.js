@@ -108,6 +108,17 @@ $(document).ready(() => {
             })
     })
 
+    // utils
+
+    var findPurpose = function(purposeName) {
+        for (var i = 0, len = purposeObjects.length; i < len; i++) {
+            if (purposeObjects[i].purpose === purposeName)
+                return purposeObjects[i]; // Return as soon as the object is found
+        }
+        return null; // The object was not found
+    }
+
+
     // socket.js
 
 
@@ -117,6 +128,14 @@ $(document).ready(() => {
             colour: socket.colour,
             channels: socket.channels
         });
+
+        var findChannel = function(channel_name, n_user) {
+            for (var i = 0, len = n_user.channels.length; i < len; i++) {
+                if (n_user.channels[i].name === channel_name)
+                    return true; // Return as soon as the object is found
+            }
+            return null; // The object was not found
+        }
 
         var sendMessage = function(message) {
             console.log(message)
@@ -192,12 +211,13 @@ $(document).ready(() => {
             })
         })
 
-        socket.on('user logged', (user) => {
-            console.log("user logged " + user.username + " " + user.colour)
-            if (user.channels.indexOf($('.channelTitle').text() !== -1)) {
+        socket.on('user logged', (n_user) => {
+            console.log("user logged " + n_user.username + " " + n_user.colour)
+            console.log($('.channelTitle').text() + findChannel($('.channelTitle').text(), n_user))
+            if (findChannel($('.channelTitle').text(), n_user)) {
                 addUserToChannelList({
-                    username: user.username,
-                    colour: user.colour,
+                    username: n_user.username,
+                    colour: n_user.colour,
                     channel: $('.channelTitle').text(),
                 })
             }
@@ -215,5 +235,7 @@ $(document).ready(() => {
         module.exports.getCacheForChannel = getCacheForChannel;
         module.exports.getMsgForChannel = getMsgForChannel;
         module.exports.addUserToChannel = addUserToChannel;
+
+
     }
 })
